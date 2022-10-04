@@ -1,0 +1,65 @@
+trigger:
+- main
+
+variables:
+- name: BuildParameters.azureContainerRegistry
+  value: '{"loginServer":"crgtl000hubthornelabsq01.azurecr.io", "id": "/subscriptions/ac7e78e7-ab0a-4460-ad09-ccad6d736ca6/resourceGroups/rsg-tl000-hub-containers-q01/providers/Microsoft.ContainerRegistry/registries/crgtl000hubthornelabsq01"}'
+
+resources:
+  repositories:
+  - repository: self
+    type: git
+    ref: main
+
+jobs:
+- job: Job_1
+  displayName: AGENT JOB 1 
+  pool:
+    name: 'tlaksqapool'
+
+  steps:
+  - checkout: self
+
+  - task: CopyFiles@2
+    displayName: 'Copy docker compose files to root for build'
+    inputs:
+      SourceFolder: 'deployments/kb/compose'
+      Contents: | 
+        *qa.yml
+      TargetFolder: '$(Build.Repository.LocalPath)'
+      OverWrite: true  
+
+  - task: AzureCLI@1
+    displayName: 'Azure CLI Upload Container Deployment File'
+    inputs:
+      azureSubscription: 'sc-thornelabs-storage-q01'
+      scriptLocation: inlineScript
+      inlineScript: |
+        az storage blob upload --overwrite true --account-name statl000hubblobstoreq01 --container-name blob-general-q01 --file deployments/kb/release/deploy-kb-qa.json --name deploy-kb-qa.json --account-key ly1cfvKm5lRGc67W7xTbvqLwiy5n38AZE/FPKwf2jP2nhcUlf7n4p5IiWSspy8hJohpvpNVbcihC+AStZk3l+Q==
+
+  - task: DockerCompose@0
+    displayName: Docker Compose
+    inputs:
+      azureSubscriptionEndpoint: sc-thornelabs-containers-q01
+      azureContainerRegistry: $(BuildParameters.azureContainerRegistry)
+      dockerComposeFile: docker-compose-kb-qa.yml
+      dockerComposeCommand: up --build --no-start
+
+  - task: DockerCompose@0
+    displayName: Push services
+    inputs:
+      azureSubscriptionEndpoint: sc-thornelabs-containers-q01
+      azureContainerRegistry:  $(BuildParameters.azureContainerRegistry)
+      dockerComposeFile: docker-compose-kb-qa.yml
+      action: Push services
+
+  - task: Kubernetes@1
+    displayName: Deploy to AKS 
+    inputs:
+      connectionType: 'Azure Resource Manager'
+      azureSubscriptionEndpoint: 'sc-thornelabs-devops-aks-q01'
+      azureResourceGroup: 'rsg-tl000-spk-akscluster-q01'
+      kubernetesCluster: 'aks-tl000-spk-akscluster-q01'
+      command: 'apply'
+      namespace: 'thornehealthlab'
+      arguments: '-f deployments/kb/kube/deploy-kb-aks-qa.yaml'      

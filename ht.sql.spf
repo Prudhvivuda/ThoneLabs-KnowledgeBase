@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ContentFilters</key>
+	<dict/>
+	<key>auto_connect</key>
+	<true/>
+	<key>data</key>
+	<dict>
+		<key>connection</key>
+		<dict>
+			<key>database</key>
+			<string>nhanes</string>
+			<key>host</key>
+			<string>la-forge.mssm.edu</string>
+			<key>kcid</key>
+			<string>-6808751914265038205</string>
+			<key>name</key>
+			<string>la-forge</string>
+			<key>rdbms_type</key>
+			<string>mysql</string>
+			<key>ssh_host</key>
+			<string>la-forge.mssm.edu</string>
+			<key>ssh_keyLocation</key>
+			<string></string>
+			<key>ssh_keyLocationEnabled</key>
+			<integer>0</integer>
+			<key>ssh_user</key>
+			<string>l3li</string>
+			<key>sslCACertFileLocation</key>
+			<string></string>
+			<key>sslCACertFileLocationEnabled</key>
+			<integer>0</integer>
+			<key>sslCertificateFileLocation</key>
+			<string></string>
+			<key>sslCertificateFileLocationEnabled</key>
+			<integer>0</integer>
+			<key>sslKeyFileLocation</key>
+			<string></string>
+			<key>sslKeyFileLocationEnabled</key>
+			<integer>0</integer>
+			<key>type</key>
+			<string>SPSSHTunnelConnection</string>
+			<key>useSSL</key>
+			<integer>0</integer>
+			<key>user</key>
+			<string>l3li</string>
+		</dict>
+		<key>session</key>
+		<dict>
+			<key>connectionEncoding</key>
+			<string>latin1</string>
+			<key>contentFilter</key>
+			<dict/>
+			<key>contentPageNumber</key>
+			<integer>1</integer>
+			<key>contentSelection</key>
+			<data>
+			YnBsaXN0MDDUAQIDBAUGJCVYJHZlcnNpb25YJG9iamVjdHNZJGFy
+			Y2hpdmVyVCR0b3ASAAGGoKgHCBMUFRYaIVUkbnVsbNMJCgsMDxJX
+			TlMua2V5c1pOUy5vYmplY3RzViRjbGFzc6INDoACgAOiEBGABIAF
+			gAdUdHlwZVRyb3dzXxAdU2VsZWN0aW9uRGV0YWlsVHlwZU5TSW5k
+			ZXhTZXTSFwsYGVxOU1JhbmdlQ291bnQQAIAG0hscHR5aJGNsYXNz
+			bmFtZVgkY2xhc3Nlc1pOU0luZGV4U2V0oh8gWk5TSW5kZXhTZXRY
+			TlNPYmplY3TSGxwiI1xOU0RpY3Rpb25hcnmiIiBfEA9OU0tleWVk
+			QXJjaGl2ZXLRJidUZGF0YYABAAgAEQAaACMALQAyADcAQABGAE0A
+			VQBgAGcAagBsAG4AcQBzAHUAdwB8AIEAoQCmALMAtQC3ALwAxwDQ
+			ANsA3gDpAPIA9wEEAQcBGQEcASEAAAAAAAACAQAAAAAAAAAoAAAA
+			AAAAAAAAAAAAAAABIw==
+			</data>
+			<key>contentSortCol</key>
+			<string>Age</string>
+			<key>contentSortColIsAsc</key>
+			<false/>
+			<key>contentViewport</key>
+			<string>{{0, 0}, {721, 640}}</string>
+			<key>isToolbarVisible</key>
+			<true/>
+			<key>queries</key>
+			<string>select AVG(n2.value) as "Average Height", stddev(n2.value) as 'STDEV Height', n1.value as 'Gender', n3.value as "Ethnicity", n1.year 
+from nhanes n1 join nhanes n2 on n1.subject_id = n2.subject_id join nhanes n3 on n3.subject_id = n1.subject_id join nhanes n4 on n4.subject_id = n1.subject_id
+where n1.variable = 'RIAGENDR' and n2.variable = 'BMXHT' and n3.variable = 'RIDRETH3' and n4.variable = 'RIDAGEYR' 
+and n4.value &gt; 18 and n1.year = n2.year group by n1.value, n3.value, n1.year;
+
+create table ht as select n1.subject_id, n2.value as 'Height', n1.value as 'Gender', n3.value as "Age", n1.year 
+from nhanes n1 join nhanes n2 on n1.subject_id = n2.subject_id join nhanes n3 on n1.subject_id = n3.subject_id
+where n1.variable = 'RIAGENDR' and n2.variable = 'BMXHT' and n3.variable = 'RIDAGEYR' and n1.year = n2.year and n1.year = n3.year;
+
+
+create table ht_18 as select * from ht where age&gt;=18;
+
+select distinct year from nhanes;
+
+
+</string>
+			<key>table</key>
+			<string>ht_18</string>
+			<key>view</key>
+			<string>SP_VIEW_CUSTOMQUERY</string>
+			<key>windowVerticalDividerPosition</key>
+			<real>305</real>
+		</dict>
+	</dict>
+	<key>encrypted</key>
+	<false/>
+	<key>format</key>
+	<string>connection</string>
+	<key>queryFavorites</key>
+	<array/>
+	<key>queryHistory</key>
+	<array>
+		<string>select distinct year from nhanes</string>
+		<string>create table ht_18 as select * from ht where age&gt;=18</string>
+		<string>create table ht as select n1.subject_id, n2.value as 'Height', n1.value as 'Gender', n3.value as "Age", n1.year 
+from nhanes n1 join nhanes n2 on n1.subject_id = n2.subject_id join nhanes n3 on n1.subject_id = n3.subject_id
+where n1.variable = 'RIAGENDR' and n2.variable = 'BMXHT' and n3.variable = 'RIDAGEYR' and n1.year = n2.year and n1.year = n3.year</string>
+		<string>select AVG(n2.value) as "Average Height", stddev(n2.value) as 'STDEV Height', n1.value as 'Gender', n3.value as "Ethnicity", n1.year 
+from nhanes n1 join nhanes n2 on n1.subject_id = n2.subject_id join nhanes n3 on n3.subject_id = n1.subject_id join nhanes n4 on n4.subject_id = n1.subject_id
+where n1.variable = 'RIAGENDR' and n2.variable = 'BMXHT' and n3.variable = 'RIDRETH3' and n4.variable = 'RIDAGEYR' 
+and n4.value &gt; 18 and n1.year = n2.year group by n1.value, n3.value, n1.year</string>
+		<string>select n1.subject_id, n2.value as 'Height', n1.value as 'Gender', n3.value as "Age", n1.year 
+from nhanes n1 join nhanes n2 on n1.subject_id = n2.subject_id join nhanes n3 on n1.subject_id = n3.subject_id
+where n1.variable = 'RIAGENDR' and n2.variable = 'BMXHT' and n3.variable = 'RIDAGEYR' and n1.year = n2.year and n1.year = n3.year limit 30</string>
+		<string>select AVG(n2.value) as "Average Height", stddev(n2.value) as 'STDEV Height', n1.value as 'Gender', n1.year 
+from nhanes n1 join nhanes n2 on n1.subject_id = n2.subject_id
+where n1.variable = 'RIAGENDR' and n2.variable = 'BMXHT' and n1.age&gt;18 and n2.age&gt;18 and n1.year = n2.year group by n1.value, n1.year</string>
+		<string>select AVG(n2.value) as "Average Height", stddev(n2.value) as 'STDEV Height', n1.value as 'Gender', n1.year 
+from nhanes n1 join nhanes n2 on n1.subject_id = n2.subject_id
+where n1.variable = 'RIAGENDR' and n2.variable = 'BMXHT' and n1.year = n2.year group by n1.value, n1.year</string>
+		<string>select count(distinct icd10) from icd10_snomed</string>
+		<string>select count(distinct snomed_cid) from icd10_snomed</string>
+		<string>select count(distinct snomed_ct) from icd10_snomed</string>
+		<string>select distinct * from msdw_de_2017.FACT_EAGLE where encounter_key=2308462 and age_in_days_key=27698</string>
+		<string>select distinct * from msdw_de_2017.FACT where encounter_key=2308462 and age_in_days_key=27698</string>
+		<string>select * from LCA.lca_lab where medical_record_number = '1014607038' and procedure_description like '%POTASSIUM%' and age_days = '343981'</string>
+		<string>select a.* from msdw_de_2017.FACT a, msdw_de_2017.D_ENCOUNTER b 
+ where a.encounter_key=b.encounter_key 
+ and b.encounter_visit_id='1985328616'
+ and a.encounter_key = '2743500' and age_in_days_key='343981'</string>
+		<string>select * from billing.lca_billing_ekey_pair_Y_f where medical_record_number = '1014607038' and encounter_visit_id = '1985328616' and encounter_key = '2743500' and encounter_class = 'Inpatient' and acc_desc = 'BLOOD-POTASSIUM' and age_days = '343981' and bill_detail = 'Rate Charged for Single Unit'</string>
+		<string>select a.* from msdw_de_2017.FACT a, msdw_de_2017.D_ENCOUNTER b 
+ where a.encounter_key=b.encounter_key 
+ and b.encounter_visit_id='1985328616'
+ and encounter_key = '2743500' and age_in_days_key='343981'</string>
+		<string>select * from LCA.lca_lab where medical_record_number = '1014607038'  and age_days = '343981'</string>
+		<string>select * from LCA.lca_lab where medical_record_number = '1014607038' and procedure_description like '%BLOOD-POTASSIUM%' and age_days = '343981'</string>
+		<string>select * from msdw_de_2017.FACT where  encounter_key = '2743500' and age_in_days_key='343981'</string>
+		<string>select * from msdw_de_2017.FACT where medical_record_number = '1014607038' and encounter_key = '2743500' and age_in_days_key='343981'</string>
+	</array>
+	<key>rdbms_type</key>
+	<string>mysql</string>
+	<key>rdbms_version</key>
+	<string>5.5.60-0ubuntu0.14.04.1-log</string>
+	<key>version</key>
+	<integer>1</integer>
+</dict>
+</plist>

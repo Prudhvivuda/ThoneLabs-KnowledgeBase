@@ -1,0 +1,135 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "utcValue": {
+      "type": "string",
+      "defaultValue": "[utcNow()]"
+    },
+    "containerGroupName": {
+      "type": "string",
+      "defaultValue": "aci-tl000-hub-kb-q01",
+      "metadata": {
+        "description": "Thorne Health Lab KB App QA"
+      }
+    }
+  },
+  "variables": {
+    "containername": "kb-app",
+    "containerimage": "crgtl000hubthornelabsq01.azurecr.io/kb-app:latest",
+    "imageRegistryLoginServer": "crgtl000hubthornelabsq01.azurecr.io",
+    "imageRegistryUsername": "crgtl000hubthornelabsq01",
+    "imageRegistryPassword": "7KkstPMvSmCHIxVec/c6F29xPisOtZeM",
+    "containerDesc": "KB App Container QA",
+    "containerEnv": "Dev",
+    "containerTier": "Hub",
+    "ContainerBy": "thornehealthlab-devops"
+  },
+  "resources": [
+    {
+      "name": "[parameters('containerGroupName')]",
+      "type": "Microsoft.ContainerInstance/containerGroups",
+      "apiVersion": "2019-12-01",
+      "location": "[resourceGroup().location]",
+      "tags": {
+        "Created By": "[variables('containerBy')]",
+        "Created Date": "[parameters('utcValue')]",
+        "Description": "[variables('containerDesc')]",
+        "Environment": "[variables('containerEnv')]",
+        "Tier": "[variables('containerTier')]"
+      },
+      "identity": {
+        "type": "SystemAssigned"
+      },
+      "properties": {
+        "containers": [
+          {
+            "name": "[variables('containername')]",
+            "properties": {
+              "image": "[variables('containerimage')]",
+              "environmentVariables": [
+                {
+                  "name": "REACT_APP_UUID",
+                  "value": "3794021565"
+                },
+                {
+                  "name": "REACT_APP_SECRET",
+                  "value": "qa-kb-app-secret"
+                },
+                {
+                  "name": "API_ENDPOINT",
+                  "value": "https://apiqa.thornehealthlab.com"
+                },
+                {
+                  "name": "clinicDomainUrl",
+                  "value": "https://clinicqa.thornehealthlab.com/"
+                },
+                {
+                  "name": "OcpApimSubscriptionKey",
+                  "value": "e2b8cde91db24bd7aaee55d1f095a84d"
+                },        
+                {
+                  "name": "REACT_APP_ENDPOINT_API",
+                  "value": "http://localhost:9090"
+                },
+                {
+                  "name": "AZURE_KEY_VAULT_NAME",
+                  "value": "kvt-tl000-thornelabs-q01"
+                },
+                {
+                  "name": "AZURE_TENANT_ID",
+                  "value": "e46dade3-875e-4348-998d-72194fd87907"
+                },
+                {
+                  "name": "AZURE_CLIENT_ID",
+                  "value": "89edc80c-5629-44d2-8d6e-3920841e36f2"
+                },
+                {
+                  "name": "AZURE_CLIENT_SECRET",
+                  "value": "AML7Q~abhzHTCrGG3NkK3UxeEsu-ICtNr-Gam"
+                }
+              ],
+              "resources": {
+                "requests": {
+                  "cpu": 2,
+                  "memoryInGb": 8.0
+                }
+              },
+              "ports": [
+                {
+                  "port": 8085
+                }
+              ]
+            }
+          }
+        ],      
+        "sku": "Standard",
+        "osType": "Linux",
+        "restartPolicy": "Always",
+        "ipAddress": {
+          "type": "Public",
+          "dnsNameLabel": "thornehealthlab-kb-qa",
+          "ports": [
+            {
+              "protocol": "tcp",
+              "port": 8085
+            }
+          ]
+        },
+        "imageRegistryCredentials": [
+          {
+            "password": "[variables('imageRegistryPassword')]",
+            "server": "[variables('imageRegistryLoginServer')]",
+            "username": "[variables('imageRegistryUsername')]"
+          }
+        ]
+      }
+    }
+  ],
+  "outputs": {
+    "containerIPv4Address": {
+      "type": "string",
+      "value": "[reference(resourceId('Microsoft.ContainerInstance/containerGroups/', parameters('containerGroupName'))).ipAddress.ip]"
+    }
+  }
+}

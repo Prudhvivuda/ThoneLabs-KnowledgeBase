@@ -1,0 +1,91 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: kb-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kb-app
+  template:
+    metadata:
+      labels:
+        app: kb-app
+    spec:
+      containers:
+      - name: kb-app
+        image: crgtl000hubthornelabsq01.azurecr.io/kb-app:latest      
+        ports:
+        - containerPort: 8085
+        env:
+        - name: REACT_APP_UUID
+          value: "3794021565"
+        - name: REACT_APP_SECRET
+          value: "qa-kb-app-secret"
+        - name: API_ENDPOINT
+          value: "https://apiq.thornehealthlab.com"
+        - name: REACT_APP_ENDPOINT_API
+          value: "http://localhost:9090"
+        - name: AZURE_KEY_VAULT_NAME
+          value: "kvt-tl000-thornelabs-q01"
+        - name: AZURE_TENANT_ID
+          value: "e46dade3-875e-4348-998d-72194fd87907"
+        - name: clinicDomainUrl
+          value: "https://clinicq.thornehealthlab.com/"
+        - name: OcpApimSubscriptionKey
+          value: ""
+        - name: AZURE_CLIENT_ID
+          value: "89edc80c-5629-44d2-8d6e-3920841e36f2"
+        - name: AZURE_CLIENT_SECRET
+          value: "AML7Q~abhzHTCrGG3NkK3UxeEsu-ICtNr-Gam"
+        resources:
+          limits:
+            memory: 4Gi
+            cpu: 2
+          requests:
+            memory: 2Gi
+            cpu: 1
+      imagePullSecrets:
+      - name: tlaksqasecret
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: kb-app-service
+spec:
+  selector:
+    app: kb-app
+  ports:
+  - protocol: TCP
+    name: kb-8085
+    port: 8085
+    targetPort: 8085
+
+---
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: kb-app-ingress
+  annotations:
+    kubernetes.io/ingress.class: azure/application-gateway
+    appgw.ingress.kubernetes.io/health-probe-status-codes: "200-399, 401, 404"
+    # appgw.ingress.kubernetes.io/ssl-redirect: "true"    
+spec:
+  tls:
+    - hosts:
+      - kbq.thornehealthlab.com
+      secretName: tlaksqassl
+  rules:
+  - host: kbq.thornehealthlab.com
+    http:      
+      paths:
+      - backend:
+          service:
+            name: kb-app-service
+            port:
+              number: 8085
+        path: /      
+        pathType: ImplementationSpecific

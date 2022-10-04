@@ -1,0 +1,50 @@
+WA,Endurance,50 + 10 * (((Endurance_scaled_score) - (8.84 - 9.84*(age/100) ** 3 + 1.72*(edu/10) + 1.33*male)) / (1.91 - 0.68*(age/100) + 0.11*(edu/10) + 0.37*male)) / 1.27
+WA,LO4MT_Usual_Pace,50 + 10 * (((LO4MT_Usual_Pace_scaled_score) - (10.17 - 5.99 * (age/100) ** 3 + 0.50 * (edu/10) + 0.64*male)) / (1.78 + 0.29 * (age/100) + 0.21*(edu/10) + 0.06 * male)) / 1.25
+WA,LO4MT_Fast_Pace,50 + 10 * (((LO4MT_Fast_Pace_scaled_score) - (11.16 - 6.39 * (age / 100) + 1.21 * (edu/10) + 0.95 *  male)) / (1.47 + 0.39 * (age/100) + 0.31 *(edu/10) + 0.04 * male)) / 1.28
+WA,DX9H_Dominant,50 + 10 * (((DX9H_Dominant_scaled_score) - (11.90 - 8.37*(age/100)**3 + 0.25*(edu/10) - 1.39*male)) / (2.23 - 0.45*(age/100) - 0.05*(edu/10) + 0.03*male)) / 1.27
+WA,DX9H_Non_Dominant,50 + 10 * (((DX9H_Non_Dominant_scaled_score) - (12.27 - 8.70 * (age/100)**3 - 0.11*(edu/10) - 0.92*male)) / (1.63 - 1.64*(age/100)**3 - 8.14*np.log(age/100)*(age/100)**3 + 0.03*(edu/10) - 0.12*male)) / 1.27
+WA,MSGS_Dominant,50 + 10 * (((MSGS_Dominant_scaled_score)-(7.58 - 8.27*(age/100)**3 + 1.88*(edu/10)**-2 + 0.70*(edu/10)**2 + 3.91*male)) / (1.60 + 0.01*(age/100) - 0.13*(edu/10) + 0.14*male)) / 1.29 
+WA,MSGS_Non_Dominant,50 + 10 * (((MSGS_Non_Dominant_scaled_score)-(9.25 - 8.10*(age/100)**3 + 0.56*(edu/10) + 3.90*male)) / (1.50 + 0.13*(age/100) - 0.05*(edu/10) + 0.05*male)) / 1.28
+WA,BAM_Theta,50 + 10 * (((BAM_Theta_scaled_score)-(10.03 - 8.86*(age/100)**3 + 1.09*(edu/10) + 0.14*male)) / (2.36 - 0.46*(age/100) + 0.03*(edu/10) - 0.21*male)) / 1.26
+AA,Endurance,50 + 10 * (((Endurance_scaled_score) - (10.02 - 5.83*(age/100) + 1.51*(edu/10) + 1.58*male)) / (2.13 + 0.34*(age/100) + 0.03*(edu/10) - 0.01*male)) / 1.23
+AA,LO4MT_Usual_Pace,50 + 10 * (((LO4MT_Usual_Pace_scaled_score) - (10.96 - 1.16*(age/100) - 0.36*(edu/10) + 0.26*male)) / (1.59 - 0.54*(age/100) + 0.68*(edu/10) + 0.48*male)) / 1.25
+AA,LO4MT_Fast_Pace,50 + 10 * (((LO4MT_Fast_Pace_scaled_score) - (7.73 - 1.95*(age/100) + 1.98*(edu/10) + 1.43*male)) / (1.53 + 0.46*(age/100) + 0.41*(edu/10) + 0.31*male)) / 1.24
+AA,DX9H_Dominant,50 + 10 * (((DX9H_Dominant_scaled_score) - (14.63 - 7.40*(age/100) - 0.61*(edu/10) - 2.26*male)) / (2.19 - 0.46*(age/100) + 0.11*(edu/10) - 0.34*male)) / 1.26
+AA,DX9H_Non_Dominant,50 + 10 * (((DX9H_Non_Dominant_scaled_score) - (14.05 - 7.75*(age/100) - 0.28*(edu/10) - 1.05*male)) / (3.96 - 0.55*(age/100) - 1.04*(edu/10) - 0.53*male)) / 1.27
+AA,MSGS_Dominant,50 + 10 * (((MSGS_Dominant_scaled_score) - (11.59 - 4.65*(age/100) - 0.42*(edu/10) + 4.47*male)) / (0.72 + 1.52*(age/100) + 0.40*(edu/10) -  0.42*male)) / 1.26
+AA,MSGS_Non_Dominant,50 + 10 * (((MSGS_Non_Dominant_scaled_score) - (9.97 - 3.79*(age/100) + 0.43*(edu/10) + 4.68*male)) / (0.38 + 1.53*(age/100) + 0.64*(edu/10) - 0.41*male)) / 1.26
+AA,BAM_Theta,50 + 10 * (((BAM_Theta_scaled_score) - (10.69 - 4.34*(age/100) + 0.57*(edu/10) + 1.22*male)) / (3.35 - 1.75*(age/100) - 0.16*(edu/10) - 0.35*male)) / 1.24
+HA,Endurance,50 + 10 * (((Endurance_scaled_score)-(5.79 - 5.79*(age/100) + 4.37*(edu/10) + 1.05 *male)) / (0.19 + 1.77*(age/100) + 0.73*(edu/10) + 0.36*male)) / 1.25
+HA,LO4MT_Usual_Pace,50 + 10 * (((LO4MT_Usual_Pace_scaled_score)-(12.28 - 2.16*(age/100)-1.34*(edu/10) + 1.38*male)) / (2.07 + 1.51*(age/100)-0.09*(edu/10)-0.63*male)) / 1.23
+HA,LO4MT_Fast_Pace,50 + 10 * (((LO4MT_Fast_Pace_scaled_score)-(9.07 - 3.79*(age/100) + 1.30*(edu/10) + 1.79*male)) / (0.48 + 1.39*(age/100) + 0.81*(edu/10) + 0.11*male)) / 1.26
+HA,DX9H_Dominant,50 + 10 * (((DX9H_Dominant_scaled_score)-(7.78 - 4.00*(age/100) + 3.23*(edu/10) - 1.87*male)) / (2.46 - 1.63*(age/100) + 0.06*(edu/10) + 0.65*male)) / 1.22
+HA,DX9H_Non_Dominant,50 + 10 * (((DX9H_Non_Dominant_scaled_score)-(7.95 - 3.34*(age/100) + 2.68*(edu/10) - 0.94*male)) / (2.93 - 0.65*(age/100) - 0.31*(edu/10) + 0.07*male)) / 1.25
+HA,MSGS_Dominant,50 + 10 * (((MSGS_Dominant_scaled_score)-(9.48 - 4.57*(age/100) + 0.60*(edu/10) + 4.24*male)) / (1.76 - 0.09*(age/100) - 0.05*(edu/10) + 0.04 * male)) / 1.30
+HA,MSGS_Non_Dominant,50 + 10 * (((MSGS_Non_Dominant_scaled_score)-(9.67 - 5.11*(age/100) + 0.53*(edu/10) + 4.56*male)) / (1.79 - 0.34*(age/100) - 0.05*(edu/10) - 0.05*male)) / 1.31
+HA,BAM_Theta,50 + 10 * (((BAM_Theta_scaled_score)-(11.75 - 8.62*(age/100) + 1.38*(edu/10) - 0.50*male)) / (1.54 + 1.79*(age/100) + 0.20*(edu/10) - 1.27*male)) / 1.25
+WC,Endurance,50 + 10 * (((Endurance_scaled_score) - ( -14.78 + 41.45*(age/10)**0.5 - 17.91*(age/10) + 1.25*(edu/10) + 0.37*male)) / (1.78 + 0.48*(age/10) - 0.29*(edu/10) + 0.14*male)) / 1.26
+WC,LO4MT_Usual_Pace,50 + 10 * (((LO4MT_Usual_Pace_scaled_score)-(8.62 + 0.88*(age/10) + 0.42*(edu/10) - 0.36*male)) / (3.30 - 0.64*(age/10) - 0.15*(edu/10) + 0.05*male)) / 1.25
+WC,LO4MT_Fast_Pace,50 + 10 * (((LO4MT_Fast_Pace_scaled_score) - (10.22 - 2.02*(age/10)** -1 + 1.21*(edu/10) + 0.31*male)) / (2.73 - 0.23*(age/10) - 0.11*(edu/10) + 0.01*male)) / 1.25
+WC,DX9H_Dominant,50 + 10 * (((DX9H_Dominant_scaled_score) - (14.65 + 0.84*(age/10)** -2 - 6.29*(age/10)** -1 + 0.97*(edu/10)**3 - 1.25*np.log(edu/10)*(edu/10)**3-0.76*male)) / (0.92 + 0.83*(age/10) - 0.13*(edu/10) + 0.002*male)) / 1.25
+WC,DX9H_Non_Dominant,50 + 10 * (((DX9H_Non_Dominant_scaled_score)-(9.90 + 4.98*np.log(age/10) + 0.21*(edu/10) - 0.53*male)) / (0.85 + 0.71*(age/10) + 0.04*(edu/10) - 0.12*male)) / 1.27
+WC,MSGS_Dominant,50 + 10 * (((MSGS_Dominant_scaled_score) - (1.52 + 7.58*(age/10) - 0.26*(age/10)**3 + 0.09*(edu/10) + 0.97*male)) / (0.81 + 0.11*(age/10)**3 - 0.01*(edu/10) + 0.17*male)) / 1.28
+WC,MSGS_Non_Dominant,50 + 10 * (((MSGS_Non_Dominant_scaled_score)-(1.45 + 7.44*(age/10) - 0.24*(age/10)**3 + 0.22*(edu/10) + 0.99*male)) / (1.00 + 0.10*(age/10)**3 - 0.11*(edu/10) + 0.14*male)) / 1.28
+WC,BAM_Theta,50 + 10 * (((BAM_Theta_scaled_score)-(4.66 + 8.05*(age/10)**2 - 3.11*(age/10)**3 + 0.03*(edu/10) - 0.41*male)) / (1.38 + 0.35*(age/10) - 0.09*(edu/10) - 0.11*male)) / 1.29
+AC,Endurance,50 + 10 * (((Endurance_scaled_score)-( -31.99 + 41.50*(age/10)** 0.5 - 18.42*np.log(age/10)*(age/10)** 0.5 + 0.68*(edu/10) + 0.57*male)) / (1.18 + 0.43*(age/10) + 0.16*(edu/10) + 0.46*male)) / 1.24
+AC,LO4MT_Usual_Pace,50 + 10 * (((LO4MT_Usual_Pace_scaled_score) - (10.58 + 0.50*(age/10) - 0.71*(edu/10)-0.59*male)) / (3.42 - 0.15*(age/10) - 0.72*(edu/10) + 0.11*male)) / 1.25
+AC,LO4MT_Fast_Pace,50 + 10 * (((LO4MT_Fast_Pace_scaled_score)-(7.98 + 0.89*(age/10) + 0.76*(edu/10) + 0.09*male)) / (3.21 - 0.14*(age/10) - 0.44*(edu/10) - 0.17*male)) / 1.24
+AC,DX9H_Dominant,50 + 10 * (((DX9H_Dominant_scaled_score)-(10.23 + 4.94*np.log(age/10) - 0.08*(edu/10) - 0.45*male)) / (0.90 + 0.64*(age/10) + 0.06*(edu/10) - 0.04*male)) / 1.25
+AC,DX9H_Non_Dominant,50 + 10 * (((DX9H_Non_Dominant_scaled_score)-(9.79 + 4.98*np.log(age/10) + 0.10*(edu/10)-0.05*male)) / (0.76 + 0.78*(age/10) + 0.03*(edu/10) - 0.01*male)) / 1.26
+AC,MSGS_Dominant,50 + 10 * (((MSGS_Dominant_scaled_score)-( -2.58 + 12.39*(age/10)**0.5 - 0.48*(edu/10) + 0.89*male)) / (0.37 + 0.56*(age/10) + 0.07*(edu/10) + 0.27*male)) / 1.27
+AC,MSGS_Non_Dominant,50 + 10 * (((MSGS_Non_Dominant_scaled_score)-( -2.30 + 12.04*(age/10)**0.5 - 0.45*(edu/10) + 0.99*male)) / (0.50 + 0.55*(age/10) + 0.04*(edu/10) + 0.20*male)) / 1.31
+AC,BAM_Theta,50 + 10 * (((BAM_Theta_scaled_score)-(7.44 + 4.96*np.log(age/10) + 1.74*(edu/10) + 0.13*male)) / (0.90 + 0.62*(age/100) + 0.10*(edu/10) - 0.06*male)) / 1.28
+HC,Endurance,50 + 10 * (((Endurance_scaled_score)-( -34.03 + 43.51*(age/10)**0.5 - 19.61*np.log(age/10)*(age/10)**0.5 + 1.04*(edu/10) + 0.36*male)) / (1.85 + 0.10*(age/10) - 0.06*(edu/10) + 0.34*male))/ 1.24
+HC,LO4MT_Usual_Pace,50 + 10 * (((LO4MT_Usual_Pace_scaled_score)-(10.61 - 0.28*(age/10) - 0.19*(edu/10) - 0.15*male)) / (2.60 - 0.67*(age/10) + 0.36*(edu/10) + 0.32*male)) / 1.25
+HC,LO4MT_Fast_Pace,50 + 10 * (((LO4MT_Fast_Pace_scaled_score)-(7.97 + 1.70*(age/10)** -2 + 2.83*np.log(age/10)*(age/10)** -2 + 0.60*(edu/10) + 0.21*male)) / (2.72 - 0.20*(age/10) - 0.24*(edu/10) + 0.29*male)) / 1.24
+HC,DX9H_Dominant,50 + 10 * (((DX9H_Dominant_scaled_score)-(18.16 - 7.95*(age/10)** -0.5 + 0.45*(edu/10) - 0.69*male)) / (0.93 + 0.68*(age/10) + 0.07*(edu/10) - 0.12*male)) / 1.26
+HC,DX9H_Non_Dominant,50 + 10 * (((DX9H_Non_Dominant_scaled_score)-(13.20 - 3.27*(age/10)** -2 - 2.10*np.log(age/10)*(age/10)** -2 + 0.76*(edu/10) -0.68*male)) / (2.19 - 0.65*(age/10)** -2 - 0.56*np.log(age/10)*(age/10)** -2 + 0.06*(edu/10) - 0.07*male)) / 1.29
+HC,MSGS_Dominant,50 + 10 * (((MSGS_Dominant_scaled_score)-( -2.68 + 12.34*(age/10)**0.5 - 0.18*(edu/10) + 0.89*male)) / (0.35 + 0.52*(age/10) + 0.16*(edu/10) + 0.17*male)) / 1.27
+HC,MSGS_Non_Dominant,50 + 10 * (((MSGS_Non_Dominant_scaled_score)-( -2.49 + 12.21*(age/10)**0.5 - 0.23*(edu/10) + 0.86*male)) / (0.25 + 0.56*(age/10) + 0.27*(edu/10) + 0.09*male)) / 1.27
+HC,BAM_Theta,50 + 10 * (((BAM_Theta_scaled_score)-(10.33 + 4.81*np.log(age/10) - 0.04*(edu/10) - 0.57*male)) / (1.01 + 0.33*(age/10) + 0.30*(edu/10) - 0.22*male)) / 1.32
+
+

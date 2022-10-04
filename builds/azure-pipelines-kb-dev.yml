@@ -1,0 +1,67 @@
+trigger:
+- main
+    
+variables:
+- name: BuildParameters.azureContainerRegistry
+  value: '{"loginServer":"crgtl000hubthornelabsd01.azurecr.io", "id": "/subscriptions/a0994778-36e3-42ae-beb5-88a99c300941/resourceGroups/rsg-tl000-hub-containers-d01/providers/Microsoft.ContainerRegistry/registries/crgtl000hubthornelabsd01"}'
+
+resources:
+  repositories:
+  - repository: self
+    type: git
+    ref: main
+
+jobs:
+- job: Job_1
+  displayName: AGENT JOB 1 
+  pool:
+    name: 'tlakspool'
+    
+  steps:
+  - checkout: self
+
+  - task: CopyFiles@2
+    displayName: 'Copy docker compose files to root for build'
+    inputs:
+      SourceFolder: 'deployments/kb/compose'
+      Contents: | 
+        *dev.yml
+      TargetFolder: '$(Build.Repository.LocalPath)'
+      OverWrite: true  
+
+  - task: AzureCLI@1
+    displayName: 'Azure CLI Upload Container Deployment File'
+    inputs:
+      azureSubscription: 'sc-thornelabs-storage-d01'
+      scriptLocation: inlineScript
+      inlineScript: |
+        az storage blob upload --overwrite true --account-name statl000hubblobstored01 --container-name blob-general-d01 --file deployments/kb/release/deploy-kb-dev.json --name deploy-kb-dev.json --account-key 7F7Tq0vpGfhKcLBYYSxUpITQ4Nsj8Dhghp8EkG+GbnS0yLVk1I8GINX8wh0wpwZTw1LHDST8R/MCx/ewV+mgeQ== 
+
+  - task: DockerCompose@0
+    displayName: Docker Compose
+    inputs:
+      azureSubscriptionEndpoint: sc-thornelabs-containers-d01
+      azureContainerRegistry: $(BuildParameters.azureContainerRegistry)
+      dockerComposeFile: docker-compose-kb-dev.yml
+      projectName: 'compose-kb-server'       
+      dockerComposeCommand: up --build --no-start
+
+  - task: DockerCompose@0
+    displayName: Push services
+    inputs:
+      azureSubscriptionEndpoint: sc-thornelabs-containers-d01
+      azureContainerRegistry: $(BuildParameters.azureContainerRegistry)
+      dockerComposeFile: docker-compose-kb-dev.yml
+      projectName: 'compose-kb-server'      
+      action: Push services   
+
+  - task: Kubernetes@1
+    displayName: Deploy to AKS 
+    inputs:
+      connectionType: 'Azure Resource Manager'
+      azureSubscriptionEndpoint: 'sc-thornelabs-devops-aks-d01'
+      azureResourceGroup: 'rsg-tl000-spk-akscluster-d01'
+      kubernetesCluster: 'aks-tl000-spk-akscluster-d01'
+      command: 'apply'
+      namespace: 'thornehealthlab'
+      arguments: '-f deployments/kb/kube/deploy-kb-aks-dev.yaml'

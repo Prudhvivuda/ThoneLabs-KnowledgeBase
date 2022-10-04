@@ -1,0 +1,61 @@
+<html>
+    <link type="text/css" rel="stylesheet" href="{{url_for('static', filename='static/css/jsgrid.min.css')}}" />
+    <link type="text/css" rel="stylesheet" href="{{url_for('static', filename='static/css/jsgrid-theme.min.css')}}" />
+
+<body>
+    <div id="jsGrid"></div>
+</body>
+
+<script type="text/javascript" src="{{url_for('static', filename='static/js/jquery-1.11.2.min.js') }}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='static/js/jsgrid.min.js')}}"></script>
+<script>
+    $(function() {
+        var DATA = {{data|tojson}};
+        {% for data_set in data_sets %}
+        var {{data_set[0]}} = {{data_set[1]|tojson}}
+        {% endfor %}
+
+        $("#jsGrid").jsGrid({
+            width: "auto",
+            height: "auto",
+
+            filtering: true,
+            inserting: false,
+            editing: false,
+            sorting: true,
+            paging: true,
+            autoload: true,
+
+            pageSize: 15,
+            pageButtonCount: 5,
+
+            controller: {
+                loadData: function(filter) {
+                    var result = $.grep(DATA, function(item, idx) {
+                        for (var key in filter) {
+                            var value = filter[key];
+                            if (value.length > 0 && item[key].toLowerCase().indexOf(value.toLowerCase())){
+                                return false;
+                            }
+                            if (value > -1 && typeof(item[key]) == "number" && !(item[key] == value)){
+                                return false;
+                            }
+                        }
+                        return true;
+                    });
+                    return result;
+                }
+            },
+
+
+
+            fields: [
+                { name: "{{header[0]}}", type: "select", items: {{ header[0].split(' ')|join("_") }}, valueField: "id", textField: "name", width: 150, autosearch: true},
+                {% for col in header[1:] %}
+                { name: "{{col}}", type: "text", width: 150},
+                {% endfor %}
+            ]
+        });
+    });
+</script>
+</html>

@@ -1,0 +1,3762 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "LAB100-KB",
+    "contact": {
+    },
+    "version": "1.0",
+    "description": "The Lab100 KB is where any derived data for a patient is calculated, and where all population distribution data is generated. This is done by running a gunicorn webserver on an Amazon cloud server, which does not store any patient data, and can be queried by the Lab100 NodeJS server. It then processes the query, and returns all the data Lab100 needs to display for the patient consult."
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8085",
+      "variables": {}
+    }
+  ],
+  "paths": {
+    "/derived_stats[psqi]": {
+      "post": {
+        "tags": [
+          "Patient Surveys"
+        ],
+        "summary": "sleep-psqi",
+        "operationId": "sleep-psqi",
+        "parameters": [],
+        "requestBody": {
+          "description": "Despite the prevalence of sleep complaints among psychiatric patients, few questionnaires have been specifically designed to measure sleep quality in clinical populations. The Pittsburgh Sleep Quality Index (PSQI) is a self-rated questionnaire which assesses sleep quality and disturbances over a 1-month time interval. Nineteen individual items generate seven \"component\" scores: subjective sleep quality, sleep latency, sleep duration, habitual sleep efficiency, sleep disturbances, use of sleeping medication, and daytime dysfunction. The sum of scores for these seven components yields one global score. Clinical and clinimetric properties of the PSQI were assessed over an 18-month period with \"good\" sleepers (healthy subjects, n = 52) and \"poor\" sleepers (depressed patients, n = 54; sleep-disorder patients, n = 62). Acceptable measures of internal homogeneity, consistency (test-retest reliability), and validity were obtained. A global PSQI score greater than 5 yielded a diagnostic sensitivity of 89.6% and specificity of 86.5% (kappa = 0.75, p less than 0.001) in distinguishing good and poor sleepers. The clinimetric and clinical properties of the PSQI suggest its utility both in psychiatric clinical practice and research activities.",
+          "content": {
+            "application/json; charset=utf-8": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/sleep-psqi-request"
+                  },
+                  {
+                    "example": {
+                      "psqi": {
+                        "Question_1": "12:00:00",
+                        "Question_2": "5",
+                        "Question_3": "6:30:00",
+                        "Question_4": "6",
+                        "Question_5A": "Not during the past month",
+                        "Question_5B": "Three or more times a week",
+                        "Question_5C": "Not during the past month",
+                        "Question_5D": "Not during the past month",
+                        "Question_5E": "Not during the past month",
+                        "Question_5F": "Not during the past month",
+                        "Question_5G": "Less than once a week",
+                        "Question_5H": "Not during the past month",
+                        "Question_5I": "Not during the past month",
+                        "Question_5J": "Three or more times a week",
+                        "Question_6": "Fairly good",
+                        "Question_7": "Not during the past month",
+                        "Question_8": "Once or twice a week",
+                        "Question_9": "Less than once a week"
+                      }
+                    }
+                  }
+                ]
+              },
+              "example": {
+                "psqi": {
+                  "Question_1": "12:00:00",
+                  "Question_2": "5",
+                  "Question_3": "6:30:00",
+                  "Question_4": "6",
+                  "Question_5A": "Not during the past month",
+                  "Question_5B": "Three or more times a week",
+                  "Question_5C": "Not during the past month",
+                  "Question_5D": "Not during the past month",
+                  "Question_5E": "Not during the past month",
+                  "Question_5F": "Not during the past month",
+                  "Question_5G": "Less than once a week",
+                  "Question_5H": "Not during the past month",
+                  "Question_5I": "Not during the past month",
+                  "Question_5J": "Three or more times a week",
+                  "Question_6": "Fairly good",
+                  "Question_7": "Not during the past month",
+                  "Question_8": "Once or twice a week",
+                  "Question_9": "Less than once a week"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "basic": []
+          }
+        ]
+      }
+    },
+    "/derived_stats[phq9]": {
+      "post": {
+        "tags": [
+          "Patient Surveys"
+        ],
+        "summary": "mental-health-phq9",
+        "operationId": "mental-health-phq9",
+        "parameters": [],
+        "requestBody": {
+          "description": "While considerable attention has focused on improving the detection of depression, assessment of severity is also important in guiding treatment decisions. Therefore, we examined the validity of a brief, new measure of depression severity.",
+          "content": {
+            "application/json; charset=utf-8": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/mental-health-phq9-request"
+                  },
+                  {
+                    "example": {
+                      "phq9": {
+                        "doing_things": "Several days",
+                        "feeling_down": "Not at all",
+                        "falling_asleep": "More than half the days",
+                        "feeling_tired": "More than half the days",
+                        "poor_appetite": "Several days",
+                        "feeling_bad": "Not at all",
+                        "trouble_concentrating": "Several days",
+                        "moving_slowly": "Not at all",
+                        "thoughts_of_death": "Not at all",
+                        "things_at_home": "Not difficult at all"
+                      }
+                    }
+                  }
+                ]
+              },
+              "example": {
+                "phq9": {
+                  "doing_things": "Several days",
+                  "feeling_down": "Not at all",
+                  "falling_asleep": "More than half the days",
+                  "feeling_tired": "More than half the days",
+                  "poor_appetite": "Several days",
+                  "feeling_bad": "Not at all",
+                  "trouble_concentrating": "Several days",
+                  "moving_slowly": "Not at all",
+                  "thoughts_of_death": "Not at all",
+                  "things_at_home": "Not difficult at all"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "basic": []
+          }
+        ]
+      }
+    },
+    "/derived_stats[ipaq]": {
+      "post": {
+        "tags": [
+          "Patient Surveys"
+        ],
+        "summary": "physical-activity-ipaq",
+        "operationId": "physical-activity-ipaq",
+        "parameters": [],
+        "requestBody": {
+          "description": "The International Physical Activity Questionnaire (IPAQ) was developed to measure health-related physical activity (PA) in populations. The short version of the IPAQ has been tested extensively and is now used in many international studies. The present study aimed to explore the validity characteristics of the long-version IPAQ.",
+          "content": {
+            "application/json; charset=utf-8": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/physical-activity-ipaq-request"
+                  },
+                  {
+                    "example": {
+                      "ipaq": {
+                        "vigorous_days": "3",
+                        "vigorous_hours": "0",
+                        "vigorous_mins": "30",
+                        "moderate_days": "2",
+                        "moderate_hours": "0",
+                        "moderate_mins": "22",
+                        "walking_days": "5",
+                        "walking_hours": "1",
+                        "walking_mins": "0",
+                        "sit_min": 10
+                      }
+                    }
+                  }
+                ]
+              },
+              "example": {
+                "ipaq": {
+                  "vigorous_days": "3",
+                  "vigorous_hours": "0",
+                  "vigorous_mins": "30",
+                  "moderate_days": "2",
+                  "moderate_hours": "0",
+                  "moderate_mins": "22",
+                  "walking_days": "5",
+                  "walking_hours": "1",
+                  "walking_mins": "0",
+                  "sit_min": 10
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "basic": []
+          }
+        ]
+      }
+    },
+    "/derived_stats[dsq]": {
+      "post": {
+        "tags": [
+          "Patient Surveys"
+        ],
+        "summary": "nutrition-dsq",
+        "operationId": "nutrition-dsq",
+        "parameters": [],
+        "requestBody": {
+          "description": "The National Health and Nutrition Examination Survey (NHANES) assesses the health and nutritional status of adults and children in the U.S. It collects detailed information about food, nutrient, and supplement intake and other dietary behaviors. Before the 2009-10 administration, the NHANES collected this information exclusively through 24-hour recalls, food frequency questionnaires, and survey questionnaires. In certain situations, however, such as when assessment of the total diet is not required or when time is constrained, researchers have found that short dietary assessment instruments, often called screeners, are valuable. For example, screeners can be used for characterizing a population's median intakes or examining interrelationships between diet and other variables.",
+          "content": {
+            "application/json; charset=utf-8": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/nutrition-dsq-request"
+                  },
+                  {
+                    "example": {
+                      "dsq": {
+                        "age": 30,
+                        "sex": 1,
+                        "cereal": {
+                          "cereals": [
+                            {
+                              "freq": 0.1,
+                              "name": "Cheerios",
+                              "type": "all"
+                            },
+                            {
+                              "freq": 0.25,
+                              "name": "Branola",
+                              "type": "all"
+                            },
+                            {
+                              "freq": 0.5,
+                              "name": "Fruit Harvest",
+                              "type": "all"
+                            },
+                            {
+                              "freq": 0.5,
+                              "name": "Oat bran cereal, cooked, fat not added in cooking",
+                              "type": "all"
+                            }
+                          ]
+                        },
+                        "milk": {
+                          "freq": "1.0"
+                        },
+                        "soda": {
+                          "freq": "0.133"
+                        },
+                        "fruit_juice": {
+                          "freq": "0.1"
+                        },
+                        "coffee": {
+                          "freq": 0
+                        },
+                        "sweet_drinks": {
+                          "freq": 0
+                        },
+                        "fruit": {
+                          "freq": "0.133"
+                        },
+                        "salad": {
+                          "freq": "0.714"
+                        },
+                        "potatoes_fried": {
+                          "freq": "0.266"
+                        },
+                        "dry_beans": {
+                          "freq": "0.133"
+                        },
+                        "potatoes_other": {
+                          "freq": "0.2"
+                        },
+                        "grains": {
+                          "freq": "0.133"
+                        },
+                        "vegetables": {
+                          "freq": "1.0"
+                        },
+                        "salsa": {
+                          "freq": "0.166"
+                        },
+                        "pizza": {
+                          "freq": "0.0"
+                        },
+                        "tomato_sauce": {
+                          "freq": "0.166"
+                        },
+                        "cheese": {
+                          "freq": "0.286"
+                        },
+                        "red_meat": {
+                          "freq": "0.286"
+                        },
+                        "proc_meat": {
+                          "freq": "0.1"
+                        },
+                        "bread": {
+                          "freq": "0"
+                        },
+                        "candy": {
+                          "freq": 0
+                        },
+                        "doughnuts": {
+                          "freq": "0.0333"
+                        },
+                        "cookies": {
+                          "freq": "0.133"
+                        },
+                        "desserts": {
+                          "freq": "0.0"
+                        },
+                        "popcorn": {
+                          "freq": "0.0666"
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              "example": {
+                "dsq": {
+                  "age": 30,
+                  "sex": 1,
+                  "cereal": {
+                    "cereals": [
+                      {
+                        "freq": 0.1,
+                        "name": "Cheerios",
+                        "type": "all"
+                      },
+                      {
+                        "freq": 0.25,
+                        "name": "Branola",
+                        "type": "all"
+                      },
+                      {
+                        "freq": 0.5,
+                        "name": "Fruit Harvest",
+                        "type": "all"
+                      },
+                      {
+                        "freq": 0.5,
+                        "name": "Oat bran cereal, cooked, fat not added in cooking",
+                        "type": "all"
+                      }
+                    ]
+                  },
+                  "milk": {
+                    "freq": "1.0"
+                  },
+                  "soda": {
+                    "freq": "0.133"
+                  },
+                  "fruit_juice": {
+                    "freq": "0.1"
+                  },
+                  "coffee": {
+                    "freq": 0
+                  },
+                  "sweet_drinks": {
+                    "freq": 0
+                  },
+                  "fruit": {
+                    "freq": "0.133"
+                  },
+                  "salad": {
+                    "freq": "0.714"
+                  },
+                  "potatoes_fried": {
+                    "freq": "0.266"
+                  },
+                  "dry_beans": {
+                    "freq": "0.133"
+                  },
+                  "potatoes_other": {
+                    "freq": "0.2"
+                  },
+                  "grains": {
+                    "freq": "0.133"
+                  },
+                  "vegetables": {
+                    "freq": "1.0"
+                  },
+                  "salsa": {
+                    "freq": "0.166"
+                  },
+                  "pizza": {
+                    "freq": "0.0"
+                  },
+                  "tomato_sauce": {
+                    "freq": "0.166"
+                  },
+                  "cheese": {
+                    "freq": "0.286"
+                  },
+                  "red_meat": {
+                    "freq": "0.286"
+                  },
+                  "proc_meat": {
+                    "freq": "0.1"
+                  },
+                  "bread": {
+                    "freq": "0"
+                  },
+                  "candy": {
+                    "freq": 0
+                  },
+                  "doughnuts": {
+                    "freq": "0.0333"
+                  },
+                  "cookies": {
+                    "freq": "0.133"
+                  },
+                  "desserts": {
+                    "freq": "0.0"
+                  },
+                  "popcorn": {
+                    "freq": "0.0666"
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "basic": []
+          }
+        ]
+      }
+    },
+    "/derived_stats[liqids]": {
+      "post": {
+        "tags": [
+          "Blood Draw"
+        ],
+        "summary": "Lipids",
+        "operationId": "Lipids",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/LipidsRequest"
+                  },
+                  {
+                    "example": {
+                      "blood_draw": {
+                        "targets": {
+                          "ldl": "171",
+                          "vldl": "17",
+                          "triglycerides": "83",
+                          "non_hdl_cholesterol": "188",
+                          "cholesterol": "247",
+                          "hdl": "59"
+                        },
+                        "variables": {
+                          "age": 21,
+                          "gender": 1,
+                          "ethinicity": 1
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              "example": {
+                "blood_draw": {
+                  "targets": {
+                    "ldl": "171",
+                    "vldl": "17",
+                    "triglycerides": "83",
+                    "non_hdl_cholesterol": "188",
+                    "cholesterol": "247",
+                    "hdl": "59"
+                  },
+                  "variables": {
+                    "age": 21,
+                    "gender": 1,
+                    "ethinicity": 1
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "basic": []
+          }
+        ]
+      }
+    },
+    "/normative_data/targets=cholesterol+247&variables=gender+2,age+24,ethnicity+7": {
+      "get": {
+        "tags": [
+          "Blood Draw"
+        ],
+        "summary": "Cholestrol",
+        "operationId": "Cholestrol",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "basic": []
+          }
+        ]
+      }
+    },
+    "/normative_data/targets=cholesterol_hdl+4.2&variables=gender+2,age+24,ethnicity+7": {
+      "get": {
+        "tags": [
+          "Blood Draw"
+        ],
+        "summary": "cholesterol_hdl",
+        "operationId": "cholesterol_hdl",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "basic": []
+          }
+        ]
+      }
+    },
+    "/normative_data/targets=hdl+59&variables=gender+2,age+24,ethnicity+7": {
+      "get": {
+        "tags": [
+          "Blood Draw"
+        ],
+        "summary": "Hdl",
+        "operationId": "Hdl",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "basic": []
+          }
+        ]
+      }
+    },
+    "/normative_data/targets=ldl+171&variables=gender+2,age+24,ethnicity+7": {
+      "get": {
+        "tags": [
+          "Blood Draw"
+        ],
+        "summary": "Ldl",
+        "operationId": "Ldl",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "basic": []
+          }
+        ]
+      }
+    },
+    "/normative_data/targets=triglycerides+83&variables=gender+2,age+24,ethnicity+7": {
+      "get": {
+        "tags": [
+          "Blood Draw"
+        ],
+        "summary": "Triglycerides",
+        "operationId": "Triglycerides",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "basic": []
+          }
+        ]
+      }
+    },
+    "/normative_data/targets=vldl+17&variables=gender+2,age+24,ethnicity+7": {
+      "get": {
+        "tags": [
+          "Blood Draw"
+        ],
+        "summary": "Vldl",
+        "operationId": "Vldl",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "basic": []
+          }
+        ]
+      }
+    },
+    "/derived_stats[metabolism]": {
+      "post": {
+        "tags": [
+          "Blood Draw"
+        ],
+        "summary": "Metabolism",
+        "operationId": "Metabolism",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/MetabolismRequest"
+                  },
+                  {
+                    "example": {
+                      "blood_draw": {
+                        "targets": {
+                          "blood_urea_nitrogen": "18",
+                          "creatinine": "0.9",
+                          "glucose": "99",
+                          "sodium": "141",
+                          "chloride": "105",
+                          "alkaline_phosphatase": "70",
+                          "calcium": "9.6",
+                          "total_protein": "7.8",
+                          "total_bilirubin": "0.6",
+                          "potassium": "4.7",
+                          "bicarbonate": "25",
+                          "albumin": "4.0",
+                          "alanine_aminotransferase": "28",
+                          "aspartate_aminotransferase": "26"
+                        },
+                        "variables": {
+                          "age": 21,
+                          "gender": 1,
+                          "ethinicity": 1
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              "example": {
+                "blood_draw": {
+                  "targets": {
+                    "blood_urea_nitrogen": "18",
+                    "creatinine": "0.9",
+                    "glucose": "99",
+                    "sodium": "141",
+                    "chloride": "105",
+                    "alkaline_phosphatase": "70",
+                    "calcium": "9.6",
+                    "total_protein": "7.8",
+                    "total_bilirubin": "0.6",
+                    "potassium": "4.7",
+                    "bicarbonate": "25",
+                    "albumin": "4.0",
+                    "alanine_aminotransferase": "28",
+                    "aspartate_aminotransferase": "26"
+                  },
+                  "variables": {
+                    "age": 21,
+                    "gender": 1,
+                    "ethinicity": 1
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "basic": []
+          }
+        ]
+      }
+    },
+    "/normative_data/targets=alanine_aminotransferase+28&variables=gender+2,age+24,ethnicity+7": {
+      "get": {
+        "tags": [
+          "Blood Draw"
+        ],
+        "summary": "alanine_aminotransferase",
+        "operationId": "alanine_aminotransferase",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "basic": []
+          }
+        ]
+      }
+    },
+    "/normative_data/targets=albumin+4&variables=gender+2,age+24,ethnicity+7": {
+      "get": {
+        "tags": [
+          "Blood Draw"
+        ],
+        "summary": "albumin",
+        "operationId": "albumin",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "basic": []
+          }
+        ]
+      }
+    },
+    "/normative_data/targets=alkaline_phosphatase+4&variables=gender+2,age+24,ethnicity+7": {
+      "get": {
+        "tags": [
+          "Blood Draw"
+        ],
+        "summary": "alkaline_phosphatase",
+        "operationId": "alkaline_phosphatase",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "basic": []
+          }
+        ]
+      }
+    },
+    "/normative_data/targets=aspartate_aminotransferase+26&variables=gender+2,age+24,ethnicity+7": {
+      "get": {
+        "tags": [
+          "Blood Draw"
+        ],
+        "summary": "aspartate_aminotransferase",
+        "operationId": "aspartate_aminotransferase",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "basic": []
+          }
+        ]
+      }
+    },
+    "/normative_data/targets=bicarbonate+25&variables=gender+2,age+24,ethnicity+7": {
+      "get": {
+        "tags": [
+          "Blood Draw"
+        ],
+        "summary": "bicarbonate",
+        "operationId": "bicarbonate",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "basic": []
+          }
+        ]
+      }
+    },
+    "/normative_data/targets=blood_urea_nitrogen+18&variables=gender+2,age+24,ethnicity+7": {
+      "get": {
+        "tags": [
+          "Blood Draw"
+        ],
+        "summary": "blood_urea_nitrogen",
+        "operationId": "blood_urea_nitrogen",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "basic": []
+          }
+        ]
+      }
+    },
+    "/normative_data/targets=calcium+9.6&variables=gender+2,age+24,ethnicity+7": {
+      "get": {
+        "tags": [
+          "Blood Draw"
+        ],
+        "summary": "calcium",
+        "operationId": "calcium",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "basic": []
+          }
+        ]
+      }
+    },
+    "/normative_data/targets=chloride+105&variables=gender+2,age+24,ethnicity+7": {
+      "get": {
+        "tags": [
+          "Blood Draw"
+        ],
+        "summary": "chloride",
+        "operationId": "chloride",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "basic": []
+          }
+        ]
+      }
+    },
+    "/normative_data/targets=creatinine+0.9&variables=gender+2,age+24,ethnicity+7": {
+      "get": {
+        "tags": [
+          "Blood Draw"
+        ],
+        "summary": "creatinine",
+        "operationId": "creatinine",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "basic": []
+          }
+        ]
+      }
+    },
+    "/normative_data/targets=glucose+99&variables=gender+2,age+24,ethnicity+7": {
+      "get": {
+        "tags": [
+          "Blood Draw"
+        ],
+        "summary": "glucose",
+        "operationId": "glucose",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "basic": []
+          }
+        ]
+      }
+    },
+    "/normative_data/targets=potassium+4.7&variables=gender+2,age+24,ethnicity+7": {
+      "get": {
+        "tags": [
+          "Blood Draw"
+        ],
+        "summary": "Potassium",
+        "operationId": "Potassium",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "basic": []
+          }
+        ]
+      }
+    },
+    "/normative_data/targets=sodium+141&variables=gender+2,age+24,ethnicity+7": {
+      "get": {
+        "tags": [
+          "Blood Draw"
+        ],
+        "summary": "sodium",
+        "operationId": "sodium",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "basic": []
+          }
+        ]
+      }
+    },
+    "/normative_data/targets=total_bilirubin+0.6&variables=gender+2,age+24,ethnicity+7": {
+      "get": {
+        "tags": [
+          "Blood Draw"
+        ],
+        "summary": "total_bilirubin",
+        "operationId": "total_bilirubin",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "basic": []
+          }
+        ]
+      }
+    },
+    "/normative_data/targets=total_protein+7.8&variables=gender+2,age+24,ethnicity+7": {
+      "get": {
+        "tags": [
+          "Blood Draw"
+        ],
+        "summary": "total_protein",
+        "operationId": "total_protein",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "basic": []
+          }
+        ]
+      }
+    },
+    "/normative_data/targets=height+172.72&variables=gender+2,age+24": {
+      "get": {
+        "tags": [
+          "Body Scan"
+        ],
+        "summary": "height",
+        "operationId": "height",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "basic": []
+          }
+        ]
+      }
+    },
+    "/normative_data/targets=waist_circumference+36.1&variables=gender+2,age+24": {
+      "get": {
+        "tags": [
+          "Body Scan"
+        ],
+        "summary": "waist_circumference",
+        "operationId": "waist_circumference",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "basic": []
+          }
+        ]
+      }
+    },
+    "/normative_data/targets=trunk_to_leg_volume_ratio+1.4&variables=gender+2,age+24": {
+      "get": {
+        "tags": [
+          "Body Scan"
+        ],
+        "summary": "trunk_to_leg_volume_ratio",
+        "operationId": "trunk_to_leg_volume_ratio",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "basic": []
+          }
+        ]
+      }
+    },
+    "/normative_data/targets=waist_to_hip_ratio_score+0.88&variables=gender+2,age+24": {
+      "get": {
+        "tags": [
+          "Body Scan"
+        ],
+        "summary": "waist_to_hip_ratio_score",
+        "operationId": "waist_to_hip_ratio_score",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "basic": []
+          }
+        ]
+      }
+    },
+    "/derived_stats[balance]": {
+      "post": {
+        "tags": [
+          "Balance"
+        ],
+        "summary": "balance",
+        "operationId": "balance",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/balancerequest"
+                  },
+                  {
+                    "example": {
+                      "balance": {
+                        "balance_score": 57
+                      }
+                    }
+                  }
+                ]
+              },
+              "example": {
+                "balance": {
+                  "balance_score": 57
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/balancerequest"
+                    },
+                    {
+                      "example": {
+                        "balance": {
+                          "balance_score": 57
+                        }
+                      }
+                    }
+                  ]
+                },
+                "example": {
+                  "balance": {
+                    "balance_score": 57,
+                    "percentile": 75.8036347776927
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "basic": []
+          }
+        ]
+      }
+    },
+    "/normative_data/targets=weight+234.6,oxygen_saturation+100 &variables=gender+1,height+190&params=threshold_to_reject+0.05": {
+      "get": {
+        "tags": [
+          "Body Scan"
+        ],
+        "summary": "weight",
+        "operationId": "weight",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "basic": []
+          }
+        ]
+      }
+    },
+    "http://localhost:3030/strength/data": {
+      "post": {
+        "tags": [
+          "Strength"
+        ],
+        "summary": "Strength",
+        "operationId": "Strength",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/balancerequest"
+                  },
+                  {
+                    "example": {
+                      "right": 131.334,
+                      "left": 101.643
+                    }
+                  }
+                ]
+              },
+              "example": {
+                "right": 131.334,
+                "left": 101.643
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "basic": []
+          }
+        ]
+      }
+    },
+    "/normative_data/targets=non_dominant_hand_grip_strength+66.45679920613193&variables=gender+2,age+24,ethnicity+7": {
+      "get": {
+        "tags": [
+          "Strength"
+        ],
+        "summary": "non_dominant_hand_grip_strength",
+        "operationId": "non_dominant_hand_grip_strength",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "basic": []
+          }
+        ]
+      }
+    },
+    "/normative_data/targets=dominant_hand_grip_strength+83.8540994377095&variables=gender+2,age+24,ethnicity+7": {
+      "get": {
+        "tags": [
+          "Strength"
+        ],
+        "summary": "dominant_hand_grip_strength",
+        "operationId": "dominant_hand_grip_strength",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "basic": []
+          }
+        ]
+      }
+    },
+    "http://localhost:3030/dexterity/data": {
+      "post": {
+        "tags": [
+          "Dexterity"
+        ],
+        "summary": "Dexterity",
+        "operationId": "Dexterity",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/balancerequest"
+                  },
+                  {
+                    "example": {
+                      "right": 16.565537,
+                      "left": 17.989352
+                    }
+                  }
+                ]
+              },
+              "example": {
+                "right": 16.565537,
+                "left": 17.989352
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "basic": []
+          }
+        ]
+      }
+    },
+    "/normative_data/targets=non_dominant_hand_dexterity+54.36905270900573&variables=gender+2,age+24,ethnicity+7": {
+      "get": {
+        "tags": [
+          "Dexterity"
+        ],
+        "summary": "Non_dominant_hand_dexterity",
+        "operationId": "Non_dominant_hand_dexterity",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "basic": []
+          }
+        ]
+      }
+    },
+    "/normative_data/targets=dominant_hand_dexterity+53.32192475940507&variables=gender+2,age+24,ethnicity+7": {
+      "get": {
+        "tags": [
+          "Dexterity"
+        ],
+        "summary": "dominant_hand_dexterity",
+        "operationId": "dominant_hand_dexterity",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "basic": []
+          }
+        ]
+      }
+    },
+    "/derived_stats[body_composition]": {
+      "post": {
+        "tags": [
+          "Body composition"
+        ],
+        "summary": "body_composition",
+        "operationId": "body_composition",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/body_composition_request"
+                  },
+                  {
+                    "example": {
+                      "body_composition": {
+                        "weight": 156.0258,
+                        "body_fat_mass": 24.916500000000003,
+                        "skeletal_muscle_mass": 75.411000000000016,
+                        "other": 55.698299999999975,
+                        "percent_other": 35.698134539287722,
+                        "percent_body_fat": 15.969474279253818,
+                        "percent_skeletal_muscle": 48.332391181458462,
+                        "visceral_fat_level": 4,
+                        "age": 21,
+                        "gender": 1,
+                        "ethinicity": 1
+                      }
+                    }
+                  }
+                ]
+              },
+              "example": {
+                "body_composition": {
+                  "weight": 156.0258,
+                  "body_fat_mass": 24.916500000000003,
+                  "skeletal_muscle_mass": 75.411000000000016,
+                  "other": 55.698299999999975,
+                  "percent_other": 35.698134539287722,
+                  "percent_body_fat": 15.969474279253818,
+                  "percent_skeletal_muscle": 48.332391181458462,
+                  "visceral_fat_level": 4,
+                  "age": 21,
+                  "gender": 1,
+                  "ethinicity": 1
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "basic": []
+          }
+        ]
+      }
+    },
+    "/derived_stats-symmetry": {
+      "post": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "derived_stats",
+        "operationId": "derived_stats",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/derived_stats_request"
+                  },
+                  {
+                    "example": {
+                      "symmetry": {
+                        "biceps": {
+                          "right": "341",
+                          "left": "368"
+                        },
+                        "balance": {
+                          "right": "303",
+                          "left": "296"
+                        },
+                        "thigh": {
+                          "right": "632",
+                          "left": "624"
+                        },
+                        "calf": {
+                          "right": "430",
+                          "left": "419"
+                        },
+                        "dexterity": {
+                          "right": "430",
+                          "left": "419"
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              "example": {
+                "symmetry": {
+                  "biceps": {
+                    "right": "341",
+                    "left": "368"
+                  },
+                  "balance": {
+                    "right": "303",
+                    "left": "296"
+                  },
+                  "thigh": {
+                    "right": "632",
+                    "left": "624"
+                  },
+                  "calf": {
+                    "right": "430",
+                    "left": "419"
+                  },
+                  "dexterity": {
+                    "right": "430",
+                    "left": "419"
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "basic": []
+          }
+        ]
+      }
+    },
+    "/graph/targets=ldl+91&variables=gender+2,age+22,ethnicity+1": {
+      "get": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "graph",
+        "operationId": "graph",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "basic": []
+          }
+        ]
+      }
+    },
+    "/papers": {
+      "get": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "papers",
+        "operationId": "papers",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "basic": []
+          }
+        ]
+      }
+    },
+    "/topics": {
+      "get": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "topics",
+        "operationId": "topics",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "basic": []
+          }
+        ]
+      }
+    },
+    "/sample_derived_stats": {
+      "get": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "sample_derived_stats",
+        "operationId": "sample_derived_stats",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "basic": []
+          }
+        ]
+      }
+    },
+    "/sample_stats_for_derived": {
+      "get": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "sample_stats_for_derived",
+        "operationId": "sample_stats_for_derived",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "basic": []
+          }
+        ]
+      }
+    },
+    "/NHANES_vars": {
+      "get": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "NHANES_vars",
+        "operationId": "NHANES_vars",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "basic": []
+          }
+        ]
+      }
+    },
+    "/cutoffs": {
+      "get": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "cutoffs",
+        "operationId": "cutoffs",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "basic": []
+          }
+        ]
+      }
+    },
+    "/vars": {
+      "get": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "vars",
+        "operationId": "vars",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "basic": []
+          }
+        ]
+      }
+    },
+    "/cutoffs_names": {
+      "get": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "cutoffs_names",
+        "operationId": "cutoffs_names",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "basic": []
+          }
+        ]
+      }
+    },
+    "/validation": {
+      "get": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "validation",
+        "operationId": "validation",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "basic": []
+          }
+        ]
+      }
+    },
+    "/cutpoints": {
+      "get": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "cutpoints",
+        "operationId": "cutpoints",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "basic": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "sleep-psqi-request": {
+        "title": "sleep-psqi-request",
+        "required": [
+          "psqi"
+        ],
+        "type": "object",
+        "properties": {
+          "psqi": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Psqi"
+              },
+              {}
+            ]
+          }
+        },
+        "example": {
+          "psqi": {
+            "Question_1": "12:00:00",
+            "Question_2": "5",
+            "Question_3": "6:30:00",
+            "Question_4": "6",
+            "Question_5A": "Not during the past month",
+            "Question_5B": "Three or more times a week",
+            "Question_5C": "Not during the past month",
+            "Question_5D": "Not during the past month",
+            "Question_5E": "Not during the past month",
+            "Question_5F": "Not during the past month",
+            "Question_5G": "Less than once a week",
+            "Question_5H": "Not during the past month",
+            "Question_5I": "Not during the past month",
+            "Question_5J": "Three or more times a week",
+            "Question_6": "Fairly good",
+            "Question_7": "Not during the past month",
+            "Question_8": "Once or twice a week",
+            "Question_9": "Less than once a week"
+          }
+        }
+      },
+      "Psqi": {
+        "title": "Psqi",
+        "required": [
+          "Question_1",
+          "Question_2",
+          "Question_3",
+          "Question_4",
+          "Question_5A",
+          "Question_5B",
+          "Question_5C",
+          "Question_5D",
+          "Question_5E",
+          "Question_5F",
+          "Question_5G",
+          "Question_5H",
+          "Question_5I",
+          "Question_5J",
+          "Question_6",
+          "Question_7",
+          "Question_8",
+          "Question_9"
+        ],
+        "type": "object",
+        "properties": {
+          "Question_1": {
+            "type": "string"
+          },
+          "Question_2": {
+            "type": "string"
+          },
+          "Question_3": {
+            "type": "string"
+          },
+          "Question_4": {
+            "type": "string"
+          },
+          "Question_5A": {
+            "type": "string"
+          },
+          "Question_5B": {
+            "type": "string"
+          },
+          "Question_5C": {
+            "type": "string"
+          },
+          "Question_5D": {
+            "type": "string"
+          },
+          "Question_5E": {
+            "type": "string"
+          },
+          "Question_5F": {
+            "type": "string"
+          },
+          "Question_5G": {
+            "type": "string"
+          },
+          "Question_5H": {
+            "type": "string"
+          },
+          "Question_5I": {
+            "type": "string"
+          },
+          "Question_5J": {
+            "type": "string"
+          },
+          "Question_6": {
+            "type": "string"
+          },
+          "Question_7": {
+            "type": "string"
+          },
+          "Question_8": {
+            "type": "string"
+          },
+          "Question_9": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "Question_1": "12:00:00",
+          "Question_2": "5",
+          "Question_3": "6:30:00",
+          "Question_4": "6",
+          "Question_5A": "Not during the past month",
+          "Question_5B": "Three or more times a week",
+          "Question_5C": "Not during the past month",
+          "Question_5D": "Not during the past month",
+          "Question_5E": "Not during the past month",
+          "Question_5F": "Not during the past month",
+          "Question_5G": "Less than once a week",
+          "Question_5H": "Not during the past month",
+          "Question_5I": "Not during the past month",
+          "Question_5J": "Three or more times a week",
+          "Question_6": "Fairly good",
+          "Question_7": "Not during the past month",
+          "Question_8": "Once or twice a week",
+          "Question_9": "Less than once a week"
+        }
+      },
+      "mental-health-phq9-request": {
+        "title": "mental-health-phq9-request",
+        "required": [
+          "phq9"
+        ],
+        "type": "object",
+        "properties": {
+          "phq9": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Phq9"
+              },
+              {}
+            ]
+          }
+        },
+        "example": {
+          "phq9": {
+            "doing_things": "Several days",
+            "feeling_down": "Not at all",
+            "falling_asleep": "More than half the days",
+            "feeling_tired": "More than half the days",
+            "poor_appetite": "Several days",
+            "feeling_bad": "Not at all",
+            "trouble_concentrating": "Several days",
+            "moving_slowly": "Not at all",
+            "thoughts_of_death": "Not at all",
+            "things_at_home": "Not difficult at all"
+          }
+        }
+      },
+      "Phq9": {
+        "title": "Phq9",
+        "required": [
+          "doing_things",
+          "feeling_down",
+          "falling_asleep",
+          "feeling_tired",
+          "poor_appetite",
+          "feeling_bad",
+          "trouble_concentrating",
+          "moving_slowly",
+          "thoughts_of_death",
+          "things_at_home"
+        ],
+        "type": "object",
+        "properties": {
+          "doing_things": {
+            "type": "string"
+          },
+          "feeling_down": {
+            "type": "string"
+          },
+          "falling_asleep": {
+            "type": "string"
+          },
+          "feeling_tired": {
+            "type": "string"
+          },
+          "poor_appetite": {
+            "type": "string"
+          },
+          "feeling_bad": {
+            "type": "string"
+          },
+          "trouble_concentrating": {
+            "type": "string"
+          },
+          "moving_slowly": {
+            "type": "string"
+          },
+          "thoughts_of_death": {
+            "type": "string"
+          },
+          "things_at_home": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "doing_things": "Several days",
+          "feeling_down": "Not at all",
+          "falling_asleep": "More than half the days",
+          "feeling_tired": "More than half the days",
+          "poor_appetite": "Several days",
+          "feeling_bad": "Not at all",
+          "trouble_concentrating": "Several days",
+          "moving_slowly": "Not at all",
+          "thoughts_of_death": "Not at all",
+          "things_at_home": "Not difficult at all"
+        }
+      },
+      "physical-activity-ipaq-request": {
+        "title": "physical-activity-ipaq-request",
+        "required": [
+          "ipaq"
+        ],
+        "type": "object",
+        "properties": {
+          "ipaq": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Ipaq"
+              },
+              {}
+            ]
+          }
+        },
+        "example": {
+          "ipaq": {
+            "vigorous_days": "3",
+            "vigorous_hours": "0",
+            "vigorous_mins": "30",
+            "moderate_days": "2",
+            "moderate_hours": "0",
+            "moderate_mins": "22",
+            "walking_days": "5",
+            "walking_hours": "1",
+            "walking_mins": "0",
+            "sit_min": 10
+          }
+        }
+      },
+      "Ipaq": {
+        "title": "Ipaq",
+        "required": [
+          "vigorous_days",
+          "vigorous_hours",
+          "vigorous_mins",
+          "moderate_days",
+          "moderate_hours",
+          "moderate_mins",
+          "walking_days",
+          "walking_hours",
+          "walking_mins",
+          "sit_min"
+        ],
+        "type": "object",
+        "properties": {
+          "vigorous_days": {
+            "type": "string"
+          },
+          "vigorous_hours": {
+            "type": "string"
+          },
+          "vigorous_mins": {
+            "type": "string"
+          },
+          "moderate_days": {
+            "type": "string"
+          },
+          "moderate_hours": {
+            "type": "string"
+          },
+          "moderate_mins": {
+            "type": "string"
+          },
+          "walking_days": {
+            "type": "string"
+          },
+          "walking_hours": {
+            "type": "string"
+          },
+          "walking_mins": {
+            "type": "string"
+          },
+          "sit_min": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "example": {
+          "vigorous_days": "3",
+          "vigorous_hours": "0",
+          "vigorous_mins": "30",
+          "moderate_days": "2",
+          "moderate_hours": "0",
+          "moderate_mins": "22",
+          "walking_days": "5",
+          "walking_hours": "1",
+          "walking_mins": "0",
+          "sit_min": 10
+        }
+      },
+      "nutrition-dsq-request": {
+        "title": "nutrition-dsq-request",
+        "required": [
+          "dsq"
+        ],
+        "type": "object",
+        "properties": {
+          "dsq": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Dsq"
+              },
+              {}
+            ]
+          }
+        },
+        "example": {
+          "dsq": {
+            "age": 30,
+            "sex": 1,
+            "cereal": {
+              "cereals": [
+                {
+                  "freq": 0.1,
+                  "name": "Cheerios",
+                  "type": "all"
+                },
+                {
+                  "freq": 0.25,
+                  "name": "Branola",
+                  "type": "all"
+                },
+                {
+                  "freq": 0.5,
+                  "name": "Fruit Harvest",
+                  "type": "all"
+                },
+                {
+                  "freq": 0.5,
+                  "name": "Oat bran cereal, cooked, fat not added in cooking",
+                  "type": "all"
+                }
+              ]
+            },
+            "milk": {
+              "freq": "1.0"
+            },
+            "soda": {
+              "freq": "0.133"
+            },
+            "fruit_juice": {
+              "freq": "0.1"
+            },
+            "coffee": {
+              "freq": 0
+            },
+            "sweet_drinks": {
+              "freq": 0
+            },
+            "fruit": {
+              "freq": "0.133"
+            },
+            "salad": {
+              "freq": "0.714"
+            },
+            "potatoes_fried": {
+              "freq": "0.266"
+            },
+            "dry_beans": {
+              "freq": "0.133"
+            },
+            "potatoes_other": {
+              "freq": "0.2"
+            },
+            "grains": {
+              "freq": "0.133"
+            },
+            "vegetables": {
+              "freq": "1.0"
+            },
+            "salsa": {
+              "freq": "0.166"
+            },
+            "pizza": {
+              "freq": "0.0"
+            },
+            "tomato_sauce": {
+              "freq": "0.166"
+            },
+            "cheese": {
+              "freq": "0.286"
+            },
+            "red_meat": {
+              "freq": "0.286"
+            },
+            "proc_meat": {
+              "freq": "0.1"
+            },
+            "bread": {
+              "freq": "0"
+            },
+            "candy": {
+              "freq": 0
+            },
+            "doughnuts": {
+              "freq": "0.0333"
+            },
+            "cookies": {
+              "freq": "0.133"
+            },
+            "desserts": {
+              "freq": "0.0"
+            },
+            "popcorn": {
+              "freq": "0.0666"
+            }
+          }
+        }
+      },
+      "Dsq": {
+        "title": "Dsq",
+        "required": [
+          "age",
+          "sex",
+          "cereal",
+          "milk",
+          "soda",
+          "fruit_juice",
+          "coffee",
+          "sweet_drinks",
+          "fruit",
+          "salad",
+          "potatoes_fried",
+          "dry_beans",
+          "potatoes_other",
+          "grains",
+          "vegetables",
+          "salsa",
+          "pizza",
+          "tomato_sauce",
+          "cheese",
+          "red_meat",
+          "proc_meat",
+          "bread",
+          "candy",
+          "doughnuts",
+          "cookies",
+          "desserts",
+          "popcorn"
+        ],
+        "type": "object",
+        "properties": {
+          "age": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "sex": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "cereal": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Cereal"
+              },
+              {}
+            ]
+          },
+          "milk": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Milk"
+              },
+              {}
+            ]
+          },
+          "soda": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Soda"
+              },
+              {}
+            ]
+          },
+          "fruit_juice": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/FruitJuice"
+              },
+              {}
+            ]
+          },
+          "coffee": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Coffee"
+              },
+              {}
+            ]
+          },
+          "sweet_drinks": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/SweetDrinks"
+              },
+              {}
+            ]
+          },
+          "fruit": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Fruit"
+              },
+              {}
+            ]
+          },
+          "salad": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Salad"
+              },
+              {}
+            ]
+          },
+          "potatoes_fried": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/PotatoesFried"
+              },
+              {}
+            ]
+          },
+          "dry_beans": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/DryBeans"
+              },
+              {}
+            ]
+          },
+          "potatoes_other": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/PotatoesOther"
+              },
+              {}
+            ]
+          },
+          "grains": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Grains"
+              },
+              {}
+            ]
+          },
+          "vegetables": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Vegetables"
+              },
+              {}
+            ]
+          },
+          "salsa": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Salsa"
+              },
+              {}
+            ]
+          },
+          "pizza": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Pizza"
+              },
+              {}
+            ]
+          },
+          "tomato_sauce": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TomatoSauce"
+              },
+              {}
+            ]
+          },
+          "cheese": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Cheese"
+              },
+              {}
+            ]
+          },
+          "red_meat": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/RedMeat"
+              },
+              {}
+            ]
+          },
+          "proc_meat": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ProcMeat"
+              },
+              {}
+            ]
+          },
+          "bread": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Bread"
+              },
+              {}
+            ]
+          },
+          "candy": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Candy"
+              },
+              {}
+            ]
+          },
+          "doughnuts": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Doughnuts"
+              },
+              {}
+            ]
+          },
+          "cookies": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Cookies"
+              },
+              {}
+            ]
+          },
+          "desserts": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Desserts"
+              },
+              {}
+            ]
+          },
+          "popcorn": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Popcorn"
+              },
+              {}
+            ]
+          }
+        },
+        "example": {
+          "age": 30,
+          "sex": 1,
+          "cereal": {
+            "cereals": [
+              {
+                "freq": 0.1,
+                "name": "Cheerios",
+                "type": "all"
+              },
+              {
+                "freq": 0.25,
+                "name": "Branola",
+                "type": "all"
+              },
+              {
+                "freq": 0.5,
+                "name": "Fruit Harvest",
+                "type": "all"
+              },
+              {
+                "freq": 0.5,
+                "name": "Oat bran cereal, cooked, fat not added in cooking",
+                "type": "all"
+              }
+            ]
+          },
+          "milk": {
+            "freq": "1.0"
+          },
+          "soda": {
+            "freq": "0.133"
+          },
+          "fruit_juice": {
+            "freq": "0.1"
+          },
+          "coffee": {
+            "freq": 0
+          },
+          "sweet_drinks": {
+            "freq": 0
+          },
+          "fruit": {
+            "freq": "0.133"
+          },
+          "salad": {
+            "freq": "0.714"
+          },
+          "potatoes_fried": {
+            "freq": "0.266"
+          },
+          "dry_beans": {
+            "freq": "0.133"
+          },
+          "potatoes_other": {
+            "freq": "0.2"
+          },
+          "grains": {
+            "freq": "0.133"
+          },
+          "vegetables": {
+            "freq": "1.0"
+          },
+          "salsa": {
+            "freq": "0.166"
+          },
+          "pizza": {
+            "freq": "0.0"
+          },
+          "tomato_sauce": {
+            "freq": "0.166"
+          },
+          "cheese": {
+            "freq": "0.286"
+          },
+          "red_meat": {
+            "freq": "0.286"
+          },
+          "proc_meat": {
+            "freq": "0.1"
+          },
+          "bread": {
+            "freq": "0"
+          },
+          "candy": {
+            "freq": 0
+          },
+          "doughnuts": {
+            "freq": "0.0333"
+          },
+          "cookies": {
+            "freq": "0.133"
+          },
+          "desserts": {
+            "freq": "0.0"
+          },
+          "popcorn": {
+            "freq": "0.0666"
+          }
+        }
+      },
+      "Cereal": {
+        "title": "Cereal",
+        "required": [
+          "cereals"
+        ],
+        "type": "object",
+        "properties": {
+          "cereals": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Cereal1"
+            },
+            "description": ""
+          }
+        },
+        "example": {
+          "cereals": [
+            {
+              "freq": 0.1,
+              "name": "Cheerios",
+              "type": "all"
+            },
+            {
+              "freq": 0.25,
+              "name": "Branola",
+              "type": "all"
+            },
+            {
+              "freq": 0.5,
+              "name": "Fruit Harvest",
+              "type": "all"
+            },
+            {
+              "freq": 0.5,
+              "name": "Oat bran cereal, cooked, fat not added in cooking",
+              "type": "all"
+            }
+          ]
+        }
+      },
+      "Cereal1": {
+        "title": "Cereal1",
+        "required": [
+          "freq",
+          "name",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "freq": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "freq": 0.1,
+          "name": "Cheerios",
+          "type": "all"
+        }
+      },
+      "Milk": {
+        "title": "Milk",
+        "required": [
+          "freq"
+        ],
+        "type": "object",
+        "properties": {
+          "freq": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "freq": "1.0"
+        }
+      },
+      "Soda": {
+        "title": "Soda",
+        "required": [
+          "freq"
+        ],
+        "type": "object",
+        "properties": {
+          "freq": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "freq": "0.133"
+        }
+      },
+      "FruitJuice": {
+        "title": "FruitJuice",
+        "required": [
+          "freq"
+        ],
+        "type": "object",
+        "properties": {
+          "freq": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "freq": "0.1"
+        }
+      },
+      "Coffee": {
+        "title": "Coffee",
+        "required": [
+          "freq"
+        ],
+        "type": "object",
+        "properties": {
+          "freq": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "example": {
+          "freq": 0
+        }
+      },
+      "SweetDrinks": {
+        "title": "SweetDrinks",
+        "required": [
+          "freq"
+        ],
+        "type": "object",
+        "properties": {
+          "freq": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "example": {
+          "freq": 0
+        }
+      },
+      "Fruit": {
+        "title": "Fruit",
+        "required": [
+          "freq"
+        ],
+        "type": "object",
+        "properties": {
+          "freq": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "freq": "0.133"
+        }
+      },
+      "Salad": {
+        "title": "Salad",
+        "required": [
+          "freq"
+        ],
+        "type": "object",
+        "properties": {
+          "freq": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "freq": "0.714"
+        }
+      },
+      "PotatoesFried": {
+        "title": "PotatoesFried",
+        "required": [
+          "freq"
+        ],
+        "type": "object",
+        "properties": {
+          "freq": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "freq": "0.266"
+        }
+      },
+      "DryBeans": {
+        "title": "DryBeans",
+        "required": [
+          "freq"
+        ],
+        "type": "object",
+        "properties": {
+          "freq": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "freq": "0.133"
+        }
+      },
+      "PotatoesOther": {
+        "title": "PotatoesOther",
+        "required": [
+          "freq"
+        ],
+        "type": "object",
+        "properties": {
+          "freq": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "freq": "0.2"
+        }
+      },
+      "Grains": {
+        "title": "Grains",
+        "required": [
+          "freq"
+        ],
+        "type": "object",
+        "properties": {
+          "freq": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "freq": "0.133"
+        }
+      },
+      "Vegetables": {
+        "title": "Vegetables",
+        "required": [
+          "freq"
+        ],
+        "type": "object",
+        "properties": {
+          "freq": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "freq": "1.0"
+        }
+      },
+      "Salsa": {
+        "title": "Salsa",
+        "required": [
+          "freq"
+        ],
+        "type": "object",
+        "properties": {
+          "freq": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "freq": "0.166"
+        }
+      },
+      "Pizza": {
+        "title": "Pizza",
+        "required": [
+          "freq"
+        ],
+        "type": "object",
+        "properties": {
+          "freq": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "freq": "0.0"
+        }
+      },
+      "TomatoSauce": {
+        "title": "TomatoSauce",
+        "required": [
+          "freq"
+        ],
+        "type": "object",
+        "properties": {
+          "freq": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "freq": "0.166"
+        }
+      },
+      "Cheese": {
+        "title": "Cheese",
+        "required": [
+          "freq"
+        ],
+        "type": "object",
+        "properties": {
+          "freq": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "freq": "0.286"
+        }
+      },
+      "RedMeat": {
+        "title": "RedMeat",
+        "required": [
+          "freq"
+        ],
+        "type": "object",
+        "properties": {
+          "freq": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "freq": "0.286"
+        }
+      },
+      "ProcMeat": {
+        "title": "ProcMeat",
+        "required": [
+          "freq"
+        ],
+        "type": "object",
+        "properties": {
+          "freq": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "freq": "0.1"
+        }
+      },
+      "Bread": {
+        "title": "Bread",
+        "required": [
+          "freq"
+        ],
+        "type": "object",
+        "properties": {
+          "freq": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "freq": "0"
+        }
+      },
+      "Candy": {
+        "title": "Candy",
+        "required": [
+          "freq"
+        ],
+        "type": "object",
+        "properties": {
+          "freq": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "example": {
+          "freq": 0
+        }
+      },
+      "Doughnuts": {
+        "title": "Doughnuts",
+        "required": [
+          "freq"
+        ],
+        "type": "object",
+        "properties": {
+          "freq": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "freq": "0.0333"
+        }
+      },
+      "Cookies": {
+        "title": "Cookies",
+        "required": [
+          "freq"
+        ],
+        "type": "object",
+        "properties": {
+          "freq": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "freq": "0.133"
+        }
+      },
+      "Desserts": {
+        "title": "Desserts",
+        "required": [
+          "freq"
+        ],
+        "type": "object",
+        "properties": {
+          "freq": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "freq": "0.0"
+        }
+      },
+      "Popcorn": {
+        "title": "Popcorn",
+        "required": [
+          "freq"
+        ],
+        "type": "object",
+        "properties": {
+          "freq": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "freq": "0.0666"
+        }
+      },
+      "LipidsRequest": {
+        "title": "LipidsRequest",
+        "required": [
+          "blood_draw"
+        ],
+        "type": "object",
+        "properties": {
+          "blood_draw": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/BloodDraw"
+              },
+              {}
+            ]
+          }
+        },
+        "example": {
+          "blood_draw": {
+            "targets": {
+              "ldl": "171",
+              "vldl": "17",
+              "triglycerides": "83",
+              "non_hdl_cholesterol": "188",
+              "cholesterol": "247",
+              "hdl": "59"
+            },
+            "variables": {
+              "age": 21,
+              "gender": 1,
+              "ethinicity": 1
+            }
+          }
+        }
+      },
+      "BloodDraw": {
+        "title": "BloodDraw",
+        "required": [
+          "targets",
+          "variables"
+        ],
+        "type": "object",
+        "properties": {
+          "targets": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Targets"
+              },
+              {}
+            ]
+          },
+          "variables": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Variables"
+              },
+              {}
+            ]
+          }
+        },
+        "example": {
+          "targets": {
+            "ldl": "171",
+            "vldl": "17",
+            "triglycerides": "83",
+            "non_hdl_cholesterol": "188",
+            "cholesterol": "247",
+            "hdl": "59"
+          },
+          "variables": {
+            "age": 21,
+            "gender": 1,
+            "ethinicity": 1
+          }
+        }
+      },
+      "Targets": {
+        "title": "Targets",
+        "required": [
+          "ldl",
+          "vldl",
+          "triglycerides",
+          "non_hdl_cholesterol",
+          "cholesterol",
+          "hdl"
+        ],
+        "type": "object",
+        "properties": {
+          "ldl": {
+            "type": "string"
+          },
+          "vldl": {
+            "type": "string"
+          },
+          "triglycerides": {
+            "type": "string"
+          },
+          "non_hdl_cholesterol": {
+            "type": "string"
+          },
+          "cholesterol": {
+            "type": "string"
+          },
+          "hdl": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "ldl": "171",
+          "vldl": "17",
+          "triglycerides": "83",
+          "non_hdl_cholesterol": "188",
+          "cholesterol": "247",
+          "hdl": "59"
+        }
+      },
+      "Variables": {
+        "title": "Variables",
+        "required": [
+          "age",
+          "gender",
+          "ethinicity"
+        ],
+        "type": "object",
+        "properties": {
+          "age": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "gender": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ethinicity": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "example": {
+          "age": 21,
+          "gender": 1,
+          "ethinicity": 1
+        }
+      },
+      "MetabolismRequest": {
+        "title": "MetabolismRequest",
+        "required": [
+          "blood_draw"
+        ],
+        "type": "object",
+        "properties": {
+          "blood_draw": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/BloodDraw1"
+              },
+              {}
+            ]
+          }
+        },
+        "example": {
+          "blood_draw": {
+            "targets": {
+              "blood_urea_nitrogen": "18",
+              "creatinine": "0.9",
+              "glucose": "99",
+              "sodium": "141",
+              "chloride": "105",
+              "alkaline_phosphatase": "70",
+              "calcium": "9.6",
+              "total_protein": "7.8",
+              "total_bilirubin": "0.6",
+              "potassium": "4.7",
+              "bicarbonate": "25",
+              "albumin": "4.0",
+              "alanine_aminotransferase": "28",
+              "aspartate_aminotransferase": "26"
+            },
+            "variables": {
+              "age": 21,
+              "gender": 1,
+              "ethinicity": 1
+            }
+          }
+        }
+      },
+      "BloodDraw1": {
+        "title": "BloodDraw1",
+        "required": [
+          "targets",
+          "variables"
+        ],
+        "type": "object",
+        "properties": {
+          "targets": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Targets1"
+              },
+              {}
+            ]
+          },
+          "variables": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Variables"
+              },
+              {}
+            ]
+          }
+        },
+        "example": {
+          "targets": {
+            "blood_urea_nitrogen": "18",
+            "creatinine": "0.9",
+            "glucose": "99",
+            "sodium": "141",
+            "chloride": "105",
+            "alkaline_phosphatase": "70",
+            "calcium": "9.6",
+            "total_protein": "7.8",
+            "total_bilirubin": "0.6",
+            "potassium": "4.7",
+            "bicarbonate": "25",
+            "albumin": "4.0",
+            "alanine_aminotransferase": "28",
+            "aspartate_aminotransferase": "26"
+          },
+          "variables": {
+            "age": 21,
+            "gender": 1,
+            "ethinicity": 1
+          }
+        }
+      },
+      "Targets1": {
+        "title": "Targets1",
+        "required": [
+          "blood_urea_nitrogen",
+          "creatinine",
+          "glucose",
+          "sodium",
+          "chloride",
+          "alkaline_phosphatase",
+          "calcium",
+          "total_protein",
+          "total_bilirubin",
+          "potassium",
+          "bicarbonate",
+          "albumin",
+          "alanine_aminotransferase",
+          "aspartate_aminotransferase"
+        ],
+        "type": "object",
+        "properties": {
+          "blood_urea_nitrogen": {
+            "type": "string"
+          },
+          "creatinine": {
+            "type": "string"
+          },
+          "glucose": {
+            "type": "string"
+          },
+          "sodium": {
+            "type": "string"
+          },
+          "chloride": {
+            "type": "string"
+          },
+          "alkaline_phosphatase": {
+            "type": "string"
+          },
+          "calcium": {
+            "type": "string"
+          },
+          "total_protein": {
+            "type": "string"
+          },
+          "total_bilirubin": {
+            "type": "string"
+          },
+          "potassium": {
+            "type": "string"
+          },
+          "bicarbonate": {
+            "type": "string"
+          },
+          "albumin": {
+            "type": "string"
+          },
+          "alanine_aminotransferase": {
+            "type": "string"
+          },
+          "aspartate_aminotransferase": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "blood_urea_nitrogen": "18",
+          "creatinine": "0.9",
+          "glucose": "99",
+          "sodium": "141",
+          "chloride": "105",
+          "alkaline_phosphatase": "70",
+          "calcium": "9.6",
+          "total_protein": "7.8",
+          "total_bilirubin": "0.6",
+          "potassium": "4.7",
+          "bicarbonate": "25",
+          "albumin": "4.0",
+          "alanine_aminotransferase": "28",
+          "aspartate_aminotransferase": "26"
+        }
+      },
+      "derived_stats_request": {
+        "title": "derived_stats_request",
+        "required": [
+          "symmetry"
+        ],
+        "type": "object",
+        "properties": {
+          "symmetry": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Symmetry"
+              },
+              {}
+            ]
+          }
+        },
+        "example": {
+          "symmetry": {
+            "biceps": {
+              "right": "341",
+              "left": "368"
+            },
+            "balance": {
+              "right": "303",
+              "left": "296"
+            },
+            "thigh": {
+              "right": "632",
+              "left": "624"
+            },
+            "calf": {
+              "right": "430",
+              "left": "419"
+            },
+            "dexterity": {
+              "right": "430",
+              "left": "419"
+            }
+          }
+        }
+      },
+      "Symmetry": {
+        "title": "Symmetry",
+        "required": [
+          "biceps",
+          "balance",
+          "thigh",
+          "calf",
+          "dexterity"
+        ],
+        "type": "object",
+        "properties": {
+          "biceps": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Biceps"
+              },
+              {}
+            ]
+          },
+          "balance": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Balance"
+              },
+              {}
+            ]
+          },
+          "thigh": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Thigh"
+              },
+              {}
+            ]
+          },
+          "calf": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Calf"
+              },
+              {}
+            ]
+          },
+          "dexterity": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Dexterity"
+              },
+              {}
+            ]
+          }
+        },
+        "example": {
+          "biceps": {
+            "right": "341",
+            "left": "368"
+          },
+          "balance": {
+            "right": "303",
+            "left": "296"
+          },
+          "thigh": {
+            "right": "632",
+            "left": "624"
+          },
+          "calf": {
+            "right": "430",
+            "left": "419"
+          },
+          "dexterity": {
+            "right": "430",
+            "left": "419"
+          }
+        }
+      },
+      "Biceps": {
+        "title": "Biceps",
+        "required": [
+          "right",
+          "left"
+        ],
+        "type": "object",
+        "properties": {
+          "right": {
+            "type": "string"
+          },
+          "left": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "right": "341",
+          "left": "368"
+        }
+      },
+      "Balance": {
+        "title": "Balance",
+        "required": [
+          "right",
+          "left"
+        ],
+        "type": "object",
+        "properties": {
+          "right": {
+            "type": "string"
+          },
+          "left": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "right": "303",
+          "left": "296"
+        }
+      },
+      "Thigh": {
+        "title": "Thigh",
+        "required": [
+          "right",
+          "left"
+        ],
+        "type": "object",
+        "properties": {
+          "right": {
+            "type": "string"
+          },
+          "left": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "right": "632",
+          "left": "624"
+        }
+      },
+      "Calf": {
+        "title": "Calf",
+        "required": [
+          "right",
+          "left"
+        ],
+        "type": "object",
+        "properties": {
+          "right": {
+            "type": "string"
+          },
+          "left": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "right": "430",
+          "left": "419"
+        }
+      },
+      "Dexterity": {
+        "title": "Dexterity",
+        "required": [
+          "right",
+          "left"
+        ],
+        "type": "object",
+        "properties": {
+          "right": {
+            "type": "string"
+          },
+          "left": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "right": "430",
+          "left": "419"
+        }
+      },
+      "balancerequest": {
+        "title": "balancerequest",
+        "required": [
+          "balance"
+        ],
+        "type": "object",
+        "properties": {
+          "balance": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Balance1"
+              },
+              {}
+            ]
+          }
+        },
+        "example": {
+          "balance": {
+            "balance_score": 57
+          }
+        }
+      },
+      "Balance1": {
+        "title": "Balance1",
+        "required": [
+          "balance_score"
+        ],
+        "type": "object",
+        "properties": {
+          "balance_score": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "example": {
+          "balance_score": 57
+        }
+      },
+      "body_composition_request": {
+        "title": "body_composition_request",
+        "required": [
+          "body_composition"
+        ],
+        "type": "object",
+        "properties": {
+          "body_composition": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/BodyComposition"
+              },
+              {}
+            ]
+          }
+        },
+        "example": {
+          "body_composition": {
+            "weight": 156.0258,
+            "body_fat_mass": 24.916500000000003,
+            "skeletal_muscle_mass": 75.411000000000016,
+            "other": 55.698299999999975,
+            "percent_other": 35.698134539287722,
+            "percent_body_fat": 15.969474279253818,
+            "percent_skeletal_muscle": 48.332391181458462,
+            "visceral_fat_level": 4,
+            "age": 21,
+            "gender": 1,
+            "ethinicity": 1
+          }
+        }
+      },
+      "BodyComposition": {
+        "title": "BodyComposition",
+        "required": [
+          "weight",
+          "body_fat_mass",
+          "skeletal_muscle_mass",
+          "other",
+          "percent_other",
+          "percent_body_fat",
+          "percent_skeletal_muscle",
+          "visceral_fat_level",
+          "age",
+          "gender",
+          "ethinicity"
+        ],
+        "type": "object",
+        "properties": {
+          "weight": {
+            "type": "number"
+          },
+          "body_fat_mass": {
+            "type": "number"
+          },
+          "skeletal_muscle_mass": {
+            "type": "number"
+          },
+          "other": {
+            "type": "number"
+          },
+          "percent_other": {
+            "type": "number"
+          },
+          "percent_body_fat": {
+            "type": "number"
+          },
+          "percent_skeletal_muscle": {
+            "type": "number"
+          },
+          "visceral_fat_level": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "age": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "gender": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ethinicity": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "example": {
+          "weight": 156.0258,
+          "body_fat_mass": 24.916500000000003,
+          "skeletal_muscle_mass": 75.411000000000016,
+          "other": 55.698299999999975,
+          "percent_other": 35.698134539287722,
+          "percent_body_fat": 15.969474279253818,
+          "percent_skeletal_muscle": 48.332391181458462,
+          "visceral_fat_level": 4,
+          "age": 21,
+          "gender": 1,
+          "ethinicity": 1
+        }
+      }
+    },
+    "securitySchemes": {
+      "basic": {
+        "type": "http",
+        "scheme": "basic"
+      }
+    }
+  },
+  "security": [],
+  "tags": [
+    {
+      "name": "Patient Surveys"
+    },
+    {
+      "name": "Blood Draw"
+    },
+    {
+      "name": "Balance"
+    },
+    {
+      "name": "Body Scan"
+    },
+    {
+      "name": "Strength"
+    },
+    {
+      "name": "Dexterity"
+    },
+    {
+      "name": "Body composition"
+    },
+    {
+      "name": "Misc",
+      "description": ""
+    }
+  ]
+}

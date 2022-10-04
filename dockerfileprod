@@ -1,0 +1,46 @@
+# For more information, please refer to https://aka.ms/vscode-docker-python
+FROM  python:3.10.5-slim as build
+
+# set work directory
+WORKDIR /usr/src/app
+
+## Keeps Python from generating .pyc files in the container
+ENV PYTHONDONTWRITEBYTECODE=1
+
+## Turns off buffering for easier container logging
+ENV PYTHONUNBUFFERED=1
+
+# install system dependencies
+RUN apt-get update && apt-get install -y netcat
+
+RUN pip install --upgrade pip
+## Install pip requirements
+COPY ./requirements.txt /usr/src/app/requirements.txt
+RUN pip install -r requirements.txt
+
+# Creates a non-root user with an explicit UID and adds permission to access the /app folder
+# For more info, please refer to https://aka.ms/vscode-docker-python-configure-containers
+RUN adduser -u 5678 --disabled-password --gecos "" appuser && chown -R appuser /usr/src/app/
+USER appuser
+# copy project
+COPY . /usr/src/app/
+
+EXPOSE 8085
+
+WORKDIR /usr/src/app
+CMD ["python3", "patient_normalization_app.py"]
+
+
+
+############################################################################################
+## Creates a non-root user with an explicit UID and adds permission to access the /app folder
+## For more info, please refer to https://aka.ms/vscode-docker-python-configure-containers
+#RUN adduser -u 5678 --disabled-password --gecos "" appuser && chown -R appuser /app
+#USER appuser
+#
+#EXPOSE 8085
+#
+## During debugging, this entry point will be overridden. For more information, please refer to https://aka.ms/vscode-docker-python-debug
+#WORKDIR /app
+##CMD ["python", "patient_normalization_app.py"]
+#RUN python patient_normalization_app.py

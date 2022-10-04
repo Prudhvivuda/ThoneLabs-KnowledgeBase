@@ -1,0 +1,27 @@
+
+<html>
+<head>
+    <link rel="icon" href="data:,">
+    <script type="text/javascript" src="{{url_for('static', filename='static/js/jquery-1.11.2.min.js') }}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+<div></div>
+</body>
+
+<script>
+$(function () {
+    var data = {{sample_post|tojson|safe}};
+    $.ajax({
+        type: "POST",
+        data :JSON.stringify(data),
+        url: "/derived_stats",
+        contentType: "application/json",
+        success: function(response){
+        	$("div").append(JSON.stringify(response, '\n', 2))
+        }
+    });
+});
+</script>
+</html>

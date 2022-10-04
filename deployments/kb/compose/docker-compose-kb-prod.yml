@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  kb-app:
+    security_opt:
+      - seccomp:unconfined     
+    image: crgtl000hubthornelabsp01.azurecr.io/kb-app:latest
+    build:  
+      context: ./
+      dockerfile: dockerfileprod
+      args:
+        NODE_ENV: production
+        NPM_TOKEN: b3eb5158-4ba5-43c8-bb60-884a679b3f3c
+    ports:
+      - '8085:8085'
+      

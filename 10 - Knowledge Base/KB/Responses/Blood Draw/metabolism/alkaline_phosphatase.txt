@@ -1,0 +1,34 @@
+http://localhost:8085/normative_data/targets=alkaline_phosphatase+4&variables=gender+2,age+24,ethnicity+7
+
+[
+    {
+        "cutpoints": [
+            {
+                "interpretation": "Low",
+                "sign_1": "<",
+                "sign_2": "NA",
+                "units": "IU/L",
+                "value_1": "42",
+                "value_2": "NA"
+            },
+            {
+                "interpretation": "Normal",
+                "sign_1": ">=",
+                "sign_2": "<=",
+                "units": "IU/L",
+                "value_1": "42",
+                "value_2": "141"
+            },
+            {
+                "interpretation": "High",
+                "sign_1": ">",
+                "sign_2": "NA",
+                "units": "IU/L",
+                "value_1": "141",
+                "value_2": "NA"
+            }
+        ],
+        "interpretation": "Low",
+        "target_variable": "alkaline_phosphatase"
+    }
+]

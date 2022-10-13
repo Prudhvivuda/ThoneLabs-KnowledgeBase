@@ -1,0 +1,42 @@
+URL: http://localhost:8085/normative_data/targets=triglycerides+83&variables=gender+2,age+24,ethnicity+7
+
+[
+  {
+    "cutpoints": [
+      {
+        "interpretation": "Normal", 
+        "sign_1": "<", 
+        "sign_2": "NA", 
+        "units": "mg/dL", 
+        "value_1": "150", 
+        "value_2": "NA"
+      }, 
+      {
+        "interpretation": "Borderline High", 
+        "sign_1": ">=", 
+        "sign_2": "<=", 
+        "units": "mg/dL", 
+        "value_1": "150", 
+        "value_2": "199"
+      }, 
+      {
+        "interpretation": "High", 
+        "sign_1": ">=", 
+        "sign_2": "<=", 
+        "units": "mg/dL", 
+        "value_1": "200", 
+        "value_2": "499"
+      }, 
+      {
+        "interpretation": "Very High", 
+        "sign_1": ">=", 
+        "sign_2": "NA", 
+        "units": "mg/dL", 
+        "value_1": "500", 
+        "value_2": "NA"
+      }
+    ], 
+    "interpretation": "Normal", 
+    "target_variable": "triglycerides"
+  }
+]

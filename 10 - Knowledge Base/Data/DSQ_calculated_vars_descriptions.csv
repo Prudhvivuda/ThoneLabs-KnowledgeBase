@@ -1,0 +1,33 @@
+DSQfvl,Predicted intake of fruits and vegetables including legumes and French fries (cup equivalents) per day
+DSQfvlnf,Predicted intake of fruits and vegetables including legumes and excluding French fries (cup equivalents) per day
+DSQfrt,Predicted intake of fruits (cup equivalents) per day
+DSQvlall,Predicted intake of vegetables including legumes and French fries (cup equivalents) per day
+DSQvlnf,Predicted intake of vegetables including legumes and excluding French fries (cup equivalents) per day
+DSQdairy,Predicted intake of dairy (cup equivalents) per day
+DSQsug,Predicted intake of total added sugars (tsp equivalents) per day 
+DSQssb,Predicted intake of added sugars from sugar-sweetened beverages (tsp equivalents) per day
+DSQwhgr,Predicted intake of whole grains (ounce equivalents) per day
+DSQfib,Predicted intake of fiber (gm) per day
+DSQcalc,Predicted intake of calcium (mg) per day
+DSQfvl_low,Predicted probability of eating less than 1.7 cup equivalents of fruits and vegetables including legumes and French fries
+DSQfvlnf_low,Predicted probability of eating less than 1.7 cup equivalents fruits and vegetables including legumes and excluding French fries
+DSQfrt_low,Predicted probability of eating less than 0.5 cup equivalents of fruits
+DSQvlall_low,Predicted probability of eating less than 1.0 cup equivalents of vegetables including legumes and French fries
+DSQvlnf_low,Predicted probability of eating less than 1.0 cup equivalents vegetables including legumes and excluding French fries
+DSQdairy_low,Predicted probability of eating less than 1.2 cup equivalents of dairy
+DSQsug_low,Predicted probability of eating less than 11 tsp equivalents of total added sugars
+DSQssb_low,Predicted probability of eating less than 3 tsp equivalents added sugars from sugar-sweetened beverages
+DSQwhgr_low,Predicted probability of eating less than 0.3 ounce equivalents of whole grains 
+DSQfib_low,Predicted probability of eating less than 12 grams of fiber
+DSQcalc_low,Predicted probability of eating less than 800 milligrams of calcium
+DSQfvl_high,Predicted probability of eating equal or more than 3.2 cup equivalents of fruits and vegetables including legumes and French fries
+DSQfvlnf_high,Predicted probability of eating equal or more than 3.2 cup equivalents fruits and vegetables including legumes and excluding French fries
+DSQfrt_high,Predicted probability of eating equal or more than 1.4 cup equivalents of fruits
+DSQvlall_high,Predicted probability of eating equal or more than 1.8 cup equivalents of vegetables including legumes and French fries
+DSQvlnf_high,Predicted probability of eating equal or more than 1.8 cup equivalents vegetables including legumes and excluding French fries
+DSQdairy_high,Predicted probability of eating equal or more than 2.4 cup equivalents of dairy
+DSQsug_high,Predicted probability of eating equal or more than 23 tsp equivalents of total added sugars
+DSQssb_high,Predicted probability of eating equal or more than 11 tsp equivalents added sugars from sugar-sweetened beverages
+DSQwhgr_high,Predicted probability of eating equal or more than 1.0 ounce equivalents of whole grains 
+DSQfib_high,Predicted probability of eating equal or more than 19 grams of fiber
+DSQcalc_high,Predicted probability of eating equal or more than 1100 milligrams of calcium

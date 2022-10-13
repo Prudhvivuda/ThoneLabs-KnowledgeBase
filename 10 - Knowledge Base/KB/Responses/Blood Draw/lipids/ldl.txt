@@ -1,0 +1,50 @@
+URL: http://localhost:8085/normative_data/targets=ldl+171&variables=gender+2,age+24,ethnicity+7
+
+[
+  {
+    "cutpoints": [
+      {
+        "interpretation": "Optimal", 
+        "sign_1": "<", 
+        "sign_2": "NA", 
+        "units": "mg/dL", 
+        "value_1": "100", 
+        "value_2": "NA"
+      }, 
+      {
+        "interpretation": "Near Optimal", 
+        "sign_1": ">=", 
+        "sign_2": "<=", 
+        "units": "mg/dL", 
+        "value_1": "100", 
+        "value_2": "129"
+      }, 
+      {
+        "interpretation": "Borderline High", 
+        "sign_1": ">=", 
+        "sign_2": "<=", 
+        "units": "mg/dL", 
+        "value_1": "130", 
+        "value_2": "159"
+      }, 
+      {
+        "interpretation": "High", 
+        "sign_1": ">=", 
+        "sign_2": "<=", 
+        "units": "mg/dL", 
+        "value_1": "160", 
+        "value_2": "189"
+      }, 
+      {
+        "interpretation": "Very High", 
+        "sign_1": ">=", 
+        "sign_2": "NA", 
+        "units": "mg/dL", 
+        "value_1": "190", 
+        "value_2": "NA"
+      }
+    ], 
+    "interpretation": "High", 
+    "target_variable": "ldl"
+  }
+]

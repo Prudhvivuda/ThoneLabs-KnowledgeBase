@@ -1,0 +1,19 @@
+{
+  "ipaq": {
+    "met_minutes_per_week": 1886.0, 
+    "moderate_activity": {
+      "met_minutes_per_week": 176.0, 
+      "percent_of_total": 9.331919406150584
+    }, 
+    "physComment": "Your daily physical activity is qualitatively and quantitatively appropriate: both intensity and duration of your daily physical activity fully meet the general guidelines for health. Remember that both daily physical activity and sedentary time are independently correlated with health.", 
+    "vigorous_activity": {
+      "met_minutes_per_week": 720.0, 
+      "percent_of_total": 38.17603393425239
+    }, 
+    "walking_activity": {
+      "met_minutes_per_week": 990.0, 
+      "percent_of_total": 52.49204665959704
+    }, 
+    "weekly_level": "High"
+  }
+}

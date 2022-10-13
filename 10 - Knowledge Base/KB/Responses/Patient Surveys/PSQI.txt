@@ -1,0 +1,13 @@
+{
+  "psqi": {
+    "day_dysfunction": 2, 
+    "disturbance": 1, 
+    "duration": 1, 
+    "efficiency": 3, 
+    "interpretation": "Poor", 
+    "latency": 0, 
+    "medication_requirement": 0, 
+    "psqi_score": 8, 
+    "quality": 1
+  }
+}

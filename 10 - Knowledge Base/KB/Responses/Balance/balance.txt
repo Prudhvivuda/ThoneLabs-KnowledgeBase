@@ -1,0 +1,6 @@
+{
+  "balance": {
+    "balance_score": 57, 
+    "percentile": 75.8036347776927
+  }
+}

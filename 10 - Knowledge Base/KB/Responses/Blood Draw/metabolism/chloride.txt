@@ -1,0 +1,34 @@
+http://localhost:8085/normative_data/targets=chloride+105&variables=gender+2,age+24,ethnicity+7
+
+[
+  {
+    "cutpoints": [
+      {
+        "interpretation": "Low", 
+        "sign_1": "<", 
+        "sign_2": "NA", 
+        "units": "mg/dL", 
+        "value_1": "98", 
+        "value_2": "NA"
+      }, 
+      {
+        "interpretation": "Normal", 
+        "sign_1": ">=", 
+        "sign_2": "<=", 
+        "units": "mg/dL", 
+        "value_1": "98", 
+        "value_2": "108"
+      }, 
+      {
+        "interpretation": "High", 
+        "sign_1": ">", 
+        "sign_2": "NA", 
+        "units": "mg/dL", 
+        "value_1": "108", 
+        "value_2": "NA"
+      }
+    ], 
+    "interpretation": "Normal", 
+    "target_variable": "chloride"
+  }
+]

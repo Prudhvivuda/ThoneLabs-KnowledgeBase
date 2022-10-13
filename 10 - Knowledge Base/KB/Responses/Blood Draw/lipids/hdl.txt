@@ -1,0 +1,34 @@
+URL: http://localhost:8085/normative_data/targets=hdl+59&variables=gender+2,age+24,ethnicity+7
+
+[
+  {
+    "cutpoints": [
+      {
+        "interpretation": "Increased Risk", 
+        "sign_1": "<", 
+        "sign_2": "NA", 
+        "units": "mg/dL", 
+        "value_1": "40", 
+        "value_2": "NA"
+      }, 
+      {
+        "interpretation": "Normal", 
+        "sign_1": ">=", 
+        "sign_2": "<", 
+        "units": "mg/dL", 
+        "value_1": "40", 
+        "value_2": "60"
+      }, 
+      {
+        "interpretation": "Desirable", 
+        "sign_1": ">=", 
+        "sign_2": "NA", 
+        "units": "mg/dL", 
+        "value_1": "60", 
+        "value_2": "NA"
+      }
+    ], 
+    "interpretation": "Normal", 
+    "target_variable": "hdl"
+  }
+]

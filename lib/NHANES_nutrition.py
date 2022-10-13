@@ -136,12 +136,10 @@ def dsq_scorer(cereal_filepath = 'data/calib_DSQ_cereal_ntile.csv',
     for row in open(calc_vars_description_filepath, 'rU'):
         var, description = row.split(',')
         results[var] = {'description':description.strip()}
-    print("resulrs are : :", results)
     for row in open(calc_vars_filepath, 'rU'):
         var, formula = row.split(',')
         formula = formula.strip()
         #a formula from calc_vars_description is run to generate result
-        # print('faormula:----------------,', formula)
         value = eval(formula)
         if 'probability' in results[var]['description']:
             if value < -100:

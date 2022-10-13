@@ -1,8 +1,9 @@
 # run this file when new dataset comes to convert the .csv files into required JSONs and Dictionary.
+# this script works assuming the given dataset is in sorted order and need to be run only once.
 
 from copy import deepcopy
-import csv
-import json
+import csv, json
+from collections import OrderedDict
 
 def read_csv_universal_newline (filename, delimiter = ","):
     try:
@@ -34,14 +35,15 @@ def ordertest(A):
             return False
     return True
 
-    
+# give the path of the new dataset for which we need to configure or convert the data into existing file formats
+source = '/Work/Quisitive/Weight.csv'
 
-# source = 'D:\data\static_distributions.csv'
-# source= 'D:\data\WaistCircumference.csv'
-source = '/content/drive/MyDrive/Work/Quisitive/Weight.csv'
-# source = '/content/drive/MyDrive/Work/Quisitive/static_distributions.csv'
-from collections import OrderedDict
 template = OrderedDict()
+'''
+    template can be created based on the number of age groups and the gender.
+    here, there are 8 age groups in each gender, so there would be 16 keys and 
+    values depends on the data for each age group.
+'''
 template["gender_2_age_0"] = []
 template["gender_2_age_1"] = []
 template["gender_2_age_2"] = []
@@ -75,16 +77,15 @@ def static_distribution_list():
     for key in proc_data.keys():
         var_data = deepcopy(proc_data[key])
         age_table = sorted(list(set(map(lambda x: tryFloat(x['age_min']), var_data))))
-        print(age_table)
         gender_table = sorted(list(set(map(lambda x: tryFloat(x['gender']), var_data))))
-        print(gender_table)
         value_table = list(map(lambda x: tryFloat(x['value']), var_data))
         percentile_table = list(map(lambda x: tryFloat(x['percentile']), var_data))
         
-    # code for values
+    '''
+        code to get the variable(weight/height/waistcircumferece) values 
+        for the keys in the above defined template in the form of a dictionary
+    '''
     i = 0
-    j = 0
-  
     while i < len(value_table):
         for key in template:
             template[key].append(value_table[i])
@@ -92,7 +93,7 @@ def static_distribution_list():
     result = json.dumps(template)
     
 
-    # code for percdntiles dictionary
+    # code to get the percentiles for a variable in the form of a dictionary
     i = 0
     p = {}
     while i < len(percentile_table):

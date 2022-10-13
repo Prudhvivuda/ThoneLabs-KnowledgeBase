@@ -1,0 +1,6 @@
+{
+  "phq9": {
+    "interpretation": "Severe Depression", 
+    "phq9_score": 7
+  }
+}

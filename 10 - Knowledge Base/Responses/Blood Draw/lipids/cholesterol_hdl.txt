@@ -1,0 +1,26 @@
+URL: http://localhost:8085/normative_data/targets=cholesterol_hdl+4.2&variables=gender+2,age+24,ethnicity+7
+
+[
+  {
+    "cutpoints": [
+      {
+        "interpretation": "Low Risk", 
+        "sign_1": "<=", 
+        "sign_2": "NA", 
+        "units": "NA", 
+        "value_1": "4.5", 
+        "value_2": "NA"
+      }, 
+      {
+        "interpretation": "High Risk", 
+        "sign_1": ">", 
+        "sign_2": "NA", 
+        "units": "NA", 
+        "value_1": "4.5", 
+        "value_2": "NA"
+      }
+    ], 
+    "interpretation": "Low Risk", 
+    "target_variable": "cholesterol_hdl"
+  }
+]

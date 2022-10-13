@@ -1,0 +1,424 @@
+{
+  "blood_draw": [
+    {
+      "cutpoints": [
+        {
+          "interpretation": "Low", 
+          "sign_1": "<", 
+          "sign_2": "NA", 
+          "units": "mg/dL", 
+          "value_1": "0.2", 
+          "value_2": "NA"
+        }, 
+        {
+          "interpretation": "Normal", 
+          "sign_1": ">=", 
+          "sign_2": "<=", 
+          "units": "mg/dL", 
+          "value_1": "0.2", 
+          "value_2": "1.6"
+        }, 
+        {
+          "interpretation": "High", 
+          "sign_1": ">", 
+          "sign_2": "NA", 
+          "units": "mg/dL", 
+          "value_1": "1.6", 
+          "value_2": "NA"
+        }
+      ], 
+      "interpretation": "Normal", 
+      "target_variable": "total_bilirubin"
+    }, 
+    {
+      "cutpoints": [
+        {
+          "interpretation": "Low", 
+          "sign_1": "<", 
+          "sign_2": "NA", 
+          "units": "mg/dL", 
+          "value_1": "18", 
+          "value_2": "NA"
+        }, 
+        {
+          "interpretation": "Normal", 
+          "sign_1": ">=", 
+          "sign_2": "<=", 
+          "units": "mg/dL", 
+          "value_1": "18", 
+          "value_2": "33"
+        }, 
+        {
+          "interpretation": "High", 
+          "sign_1": ">", 
+          "sign_2": "NA", 
+          "units": "mg/dL", 
+          "value_1": "33", 
+          "value_2": "NA"
+        }
+      ], 
+      "interpretation": "Normal", 
+      "target_variable": "bicarbonate"
+    }, 
+    {
+      "cutpoints": [
+        {
+          "interpretation": "Low", 
+          "sign_1": "<", 
+          "sign_2": "NA", 
+          "units": "mmol/L", 
+          "value_1": "3.6", 
+          "value_2": "NA"
+        }, 
+        {
+          "interpretation": "Normal", 
+          "sign_1": ">=", 
+          "sign_2": "<=", 
+          "units": "mmol/L", 
+          "value_1": "3.6", 
+          "value_2": "5.1"
+        }, 
+        {
+          "interpretation": "High", 
+          "sign_1": ">", 
+          "sign_2": "NA", 
+          "units": "mmol/L", 
+          "value_1": "5.1", 
+          "value_2": "NA"
+        }
+      ], 
+      "interpretation": "Normal", 
+      "target_variable": "potassium"
+    }, 
+    {
+      "cutpoints": [
+        {
+          "interpretation": "Low", 
+          "sign_1": "<", 
+          "sign_2": "NA", 
+          "units": "mmol/L", 
+          "value_1": "128", 
+          "value_2": "NA"
+        }, 
+        {
+          "interpretation": "Normal", 
+          "sign_1": ">=", 
+          "sign_2": "<=", 
+          "units": "mmol/L", 
+          "value_1": "128", 
+          "value_2": "145"
+        }, 
+        {
+          "interpretation": "High", 
+          "sign_1": ">", 
+          "sign_2": "NA", 
+          "units": "mmol/L", 
+          "value_1": "145", 
+          "value_2": "NA"
+        }
+      ], 
+      "interpretation": "Normal", 
+      "target_variable": "sodium"
+    }, 
+    {
+      "cutpoints": [
+        {
+          "interpretation": "Low", 
+          "sign_1": "<", 
+          "sign_2": "NA", 
+          "units": "mg/dL", 
+          "value_1": "0.6", 
+          "value_2": "NA"
+        }, 
+        {
+          "interpretation": "Normal", 
+          "sign_1": ">=", 
+          "sign_2": "<=", 
+          "units": "mg/dL", 
+          "value_1": "0.6", 
+          "value_2": "1.2"
+        }, 
+        {
+          "interpretation": "High", 
+          "sign_1": ">", 
+          "sign_2": "NA", 
+          "units": "mg/dL", 
+          "value_1": "1.2", 
+          "value_2": "NA"
+        }
+      ], 
+      "interpretation": "Normal", 
+      "target_variable": "creatinine"
+    }, 
+    {
+      "cutpoints": [
+        {
+          "interpretation": "Low", 
+          "sign_1": "<", 
+          "sign_2": "NA", 
+          "units": "mg/dL", 
+          "value_1": "8", 
+          "value_2": "NA"
+        }, 
+        {
+          "interpretation": "Normal", 
+          "sign_1": ">=", 
+          "sign_2": "<=", 
+          "units": "mg/dL", 
+          "value_1": "8", 
+          "value_2": "10.3"
+        }, 
+        {
+          "interpretation": "High", 
+          "sign_1": ">", 
+          "sign_2": "NA", 
+          "units": "mg/dL", 
+          "value_1": "10.3", 
+          "value_2": "NA"
+        }
+      ], 
+      "interpretation": "Normal", 
+      "target_variable": "calcium"
+    }, 
+    {
+      "cutpoints": [
+        {
+          "interpretation": "Low", 
+          "sign_1": "<", 
+          "sign_2": "NA", 
+          "units": "IU/L", 
+          "value_1": "10", 
+          "value_2": "NA"
+        }, 
+        {
+          "interpretation": "Normal", 
+          "sign_1": ">=", 
+          "sign_2": "<=", 
+          "units": "IU/L", 
+          "value_1": "10", 
+          "value_2": "47"
+        }, 
+        {
+          "interpretation": "High", 
+          "sign_1": ">", 
+          "sign_2": "NA", 
+          "units": "IU/L", 
+          "value_1": "47", 
+          "value_2": "NA"
+        }
+      ], 
+      "interpretation": "Normal", 
+      "target_variable": "alanine_aminotransferase"
+    }, 
+    {
+      "cutpoints": [
+        {
+          "interpretation": "Low", 
+          "sign_1": "<", 
+          "sign_2": "NA", 
+          "units": "mg/dL", 
+          "value_1": "6.4", 
+          "value_2": "NA"
+        }, 
+        {
+          "interpretation": "Normal", 
+          "sign_1": ">=", 
+          "sign_2": "<=", 
+          "units": "mg/dL", 
+          "value_1": "6.4", 
+          "value_2": "8.1"
+        }, 
+        {
+          "interpretation": "High", 
+          "sign_1": ">", 
+          "sign_2": "NA", 
+          "units": "mg/dL", 
+          "value_1": "8.1", 
+          "value_2": "NA"
+        }
+      ], 
+      "interpretation": "Normal", 
+      "target_variable": "total_protein"
+    }, 
+    {
+      "cutpoints": [
+        {
+          "interpretation": "Low", 
+          "sign_1": "<", 
+          "sign_2": "NA", 
+          "units": "mg/dL", 
+          "value_1": "7", 
+          "value_2": "NA"
+        }, 
+        {
+          "interpretation": "Normal", 
+          "sign_1": ">=", 
+          "sign_2": "<=", 
+          "units": "mg/dL", 
+          "value_1": "7", 
+          "value_2": "22"
+        }, 
+        {
+          "interpretation": "High", 
+          "sign_1": ">", 
+          "sign_2": "NA", 
+          "units": "mg/dL", 
+          "value_1": "22", 
+          "value_2": "NA"
+        }
+      ], 
+      "interpretation": "Normal", 
+      "target_variable": "blood_urea_nitrogen"
+    }, 
+    {
+      "cutpoints": [
+        {
+          "interpretation": "Low", 
+          "sign_1": "<", 
+          "sign_2": "NA", 
+          "units": "mg/dL", 
+          "value_1": "3.3", 
+          "value_2": "NA"
+        }, 
+        {
+          "interpretation": "Normal", 
+          "sign_1": ">=", 
+          "sign_2": "<=", 
+          "units": "mg/dL", 
+          "value_1": "3.3", 
+          "value_2": "5.5"
+        }, 
+        {
+          "interpretation": "High", 
+          "sign_1": ">", 
+          "sign_2": "NA", 
+          "units": "mg/dL", 
+          "value_1": "5.5", 
+          "value_2": "NA"
+        }
+      ], 
+      "interpretation": "Normal", 
+      "target_variable": "albumin"
+    }, 
+    {
+      "cutpoints": [
+        {
+          "interpretation": "Low", 
+          "sign_1": "<", 
+          "sign_2": "NA", 
+          "units": "mg/dL", 
+          "value_1": "98", 
+          "value_2": "NA"
+        }, 
+        {
+          "interpretation": "Normal", 
+          "sign_1": ">=", 
+          "sign_2": "<=", 
+          "units": "mg/dL", 
+          "value_1": "98", 
+          "value_2": "108"
+        }, 
+        {
+          "interpretation": "High", 
+          "sign_1": ">", 
+          "sign_2": "NA", 
+          "units": "mg/dL", 
+          "value_1": "108", 
+          "value_2": "NA"
+        }
+      ], 
+      "interpretation": "Normal", 
+      "target_variable": "chloride"
+    }, 
+    {
+      "cutpoints": [
+        {
+          "interpretation": "Low", 
+          "sign_1": "<", 
+          "sign_2": "NA", 
+          "units": "IU/L", 
+          "value_1": "11", 
+          "value_2": "NA"
+        }, 
+        {
+          "interpretation": "Normal", 
+          "sign_1": ">=", 
+          "sign_2": "<=", 
+          "units": "IU/L", 
+          "value_1": "11", 
+          "value_2": "38"
+        }, 
+        {
+          "interpretation": "High", 
+          "sign_1": ">", 
+          "sign_2": "NA", 
+          "units": "IU/L", 
+          "value_1": "38", 
+          "value_2": "NA"
+        }
+      ], 
+      "interpretation": "Normal", 
+      "target_variable": "aspartate_aminotransferase"
+    }, 
+    {
+      "cutpoints": [
+        {
+          "interpretation": "Low", 
+          "sign_1": "<", 
+          "sign_2": "NA", 
+          "units": "IU/L", 
+          "value_1": "53", 
+          "value_2": "NA"
+        }, 
+        {
+          "interpretation": "Normal", 
+          "sign_1": ">=", 
+          "sign_2": "<=", 
+          "units": "IU/L", 
+          "value_1": "53", 
+          "value_2": "128"
+        }, 
+        {
+          "interpretation": "High", 
+          "sign_1": ">", 
+          "sign_2": "NA", 
+          "units": "IU/L", 
+          "value_1": "128", 
+          "value_2": "NA"
+        }
+      ], 
+      "interpretation": "Normal", 
+      "target_variable": "alkaline_phosphatase"
+    }, 
+    {
+      "cutpoints": [
+        {
+          "interpretation": "Low", 
+          "sign_1": "<", 
+          "sign_2": "NA", 
+          "units": "mg/dL", 
+          "value_1": "73", 
+          "value_2": "NA"
+        }, 
+        {
+          "interpretation": "Normal", 
+          "sign_1": ">=", 
+          "sign_2": "<=", 
+          "units": "mg/dL", 
+          "value_1": "73", 
+          "value_2": "118"
+        }, 
+        {
+          "interpretation": "High", 
+          "sign_1": ">", 
+          "sign_2": "NA", 
+          "units": "mg/dL", 
+          "value_1": "118", 
+          "value_2": "NA"
+        }
+      ], 
+      "interpretation": "Normal", 
+      "target_variable": "glucose"
+    }
+  ]
+}

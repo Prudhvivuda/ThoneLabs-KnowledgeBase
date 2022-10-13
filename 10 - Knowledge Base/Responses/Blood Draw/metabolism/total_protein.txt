@@ -1,0 +1,34 @@
+http://localhost:8085/normative_data/targets=total_protein+7.8&variables=gender+2,age+24,ethnicity+7
+
+[
+  {
+    "cutpoints": [
+      {
+        "interpretation": "Low", 
+        "sign_1": "<", 
+        "sign_2": "NA", 
+        "units": "mg/dL", 
+        "value_1": "6.4", 
+        "value_2": "NA"
+      }, 
+      {
+        "interpretation": "Normal", 
+        "sign_1": ">=", 
+        "sign_2": "<=", 
+        "units": "mg/dL", 
+        "value_1": "6.4", 
+        "value_2": "8.1"
+      }, 
+      {
+        "interpretation": "High", 
+        "sign_1": ">", 
+        "sign_2": "NA", 
+        "units": "mg/dL", 
+        "value_1": "8.1", 
+        "value_2": "NA"
+      }
+    ], 
+    "interpretation": "Normal", 
+    "target_variable": "total_protein"
+  }
+]

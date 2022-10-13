@@ -1,0 +1,200 @@
+{
+  "blood_draw": [
+    {
+      "cutpoints": [
+        {
+          "interpretation": "Optimal", 
+          "sign_1": "<", 
+          "sign_2": "NA", 
+          "units": "mg/dL", 
+          "value_1": "130", 
+          "value_2": "NA"
+        }, 
+        {
+          "interpretation": "Increased Risk", 
+          "sign_1": ">=", 
+          "sign_2": "<=", 
+          "units": "mg/dL", 
+          "value_1": "130", 
+          "value_2": "189"
+        }, 
+        {
+          "interpretation": "High Risk", 
+          "sign_1": ">", 
+          "sign_2": "NA", 
+          "units": "mg/dL", 
+          "value_1": "189", 
+          "value_2": "NA"
+        }
+      ], 
+      "interpretation": "Increased Risk", 
+      "target_variable": "non_hdl_cholesterol"
+    }, 
+    {
+      "cutpoints": [
+        {
+          "interpretation": "Normal", 
+          "sign_1": "<", 
+          "sign_2": "NA", 
+          "units": "mg/dL", 
+          "value_1": "30", 
+          "value_2": "NA"
+        }, 
+        {
+          "interpretation": "High", 
+          "sign_1": ">=", 
+          "sign_2": "NA", 
+          "units": "mg/dL", 
+          "value_1": "30", 
+          "value_2": "NA"
+        }
+      ], 
+      "interpretation": "Normal", 
+      "target_variable": "vldl"
+    }, 
+    {
+      "cutpoints": [
+        {
+          "interpretation": "Optimal", 
+          "sign_1": "<", 
+          "sign_2": "NA", 
+          "units": "mg/dL", 
+          "value_1": "100", 
+          "value_2": "NA"
+        }, 
+        {
+          "interpretation": "Near Optimal", 
+          "sign_1": ">=", 
+          "sign_2": "<=", 
+          "units": "mg/dL", 
+          "value_1": "100", 
+          "value_2": "129"
+        }, 
+        {
+          "interpretation": "Borderline High", 
+          "sign_1": ">=", 
+          "sign_2": "<=", 
+          "units": "mg/dL", 
+          "value_1": "130", 
+          "value_2": "159"
+        }, 
+        {
+          "interpretation": "High", 
+          "sign_1": ">=", 
+          "sign_2": "<=", 
+          "units": "mg/dL", 
+          "value_1": "160", 
+          "value_2": "189"
+        }, 
+        {
+          "interpretation": "Very High", 
+          "sign_1": ">=", 
+          "sign_2": "NA", 
+          "units": "mg/dL", 
+          "value_1": "190", 
+          "value_2": "NA"
+        }
+      ], 
+      "interpretation": "High", 
+      "target_variable": "ldl"
+    }, 
+    {
+      "cutpoints": [
+        {
+          "interpretation": "Desirable", 
+          "sign_1": "<", 
+          "sign_2": "NA", 
+          "units": "mg/dL", 
+          "value_1": "200", 
+          "value_2": "NA"
+        }, 
+        {
+          "interpretation": "Borderline High", 
+          "sign_1": ">=", 
+          "sign_2": "<=", 
+          "units": "mg/dL", 
+          "value_1": "200", 
+          "value_2": "240"
+        }, 
+        {
+          "interpretation": "High", 
+          "sign_1": ">", 
+          "sign_2": "NA", 
+          "units": "mg/dL", 
+          "value_1": "240", 
+          "value_2": "NA"
+        }
+      ], 
+      "interpretation": "High", 
+      "target_variable": "cholesterol"
+    }, 
+    {
+      "cutpoints": [
+        {
+          "interpretation": "Increased Risk", 
+          "sign_1": "<", 
+          "sign_2": "NA", 
+          "units": "mg/dL", 
+          "value_1": "40", 
+          "value_2": "NA"
+        }, 
+        {
+          "interpretation": "Normal", 
+          "sign_1": ">=", 
+          "sign_2": "<", 
+          "units": "mg/dL", 
+          "value_1": "40", 
+          "value_2": "60"
+        }, 
+        {
+          "interpretation": "Desirable", 
+          "sign_1": ">=", 
+          "sign_2": "NA", 
+          "units": "mg/dL", 
+          "value_1": "60", 
+          "value_2": "NA"
+        }
+      ], 
+      "interpretation": "Normal", 
+      "target_variable": "hdl"
+    }, 
+    {
+      "cutpoints": [
+        {
+          "interpretation": "Normal", 
+          "sign_1": "<", 
+          "sign_2": "NA", 
+          "units": "mg/dL", 
+          "value_1": "150", 
+          "value_2": "NA"
+        }, 
+        {
+          "interpretation": "Borderline High", 
+          "sign_1": ">=", 
+          "sign_2": "<=", 
+          "units": "mg/dL", 
+          "value_1": "150", 
+          "value_2": "199"
+        }, 
+        {
+          "interpretation": "High", 
+          "sign_1": ">=", 
+          "sign_2": "<=", 
+          "units": "mg/dL", 
+          "value_1": "200", 
+          "value_2": "499"
+        }, 
+        {
+          "interpretation": "Very High", 
+          "sign_1": ">=", 
+          "sign_2": "NA", 
+          "units": "mg/dL", 
+          "value_1": "500", 
+          "value_2": "NA"
+        }
+      ], 
+      "interpretation": "Normal", 
+      "target_variable": "triglycerides"
+    }
+  ]
+}

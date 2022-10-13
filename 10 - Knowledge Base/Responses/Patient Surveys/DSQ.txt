@@ -1,0 +1,136 @@
+{
+  "dsq": {
+    "DSQcalc": {
+      "description": "Predicted intake of calcium (mg) per day", 
+      "val": 1162.0698957161617
+    }, 
+    "DSQcalc_high": {
+      "description": "Predicted probability of eating equal or more than 1100 milligrams of calcium", 
+      "val": 0.5273831333585799
+    }, 
+    "DSQcalc_low": {
+      "description": "Predicted probability of eating less than 800 milligrams of calcium", 
+      "val": 0.12574795814020057
+    }, 
+    "DSQdairy": {
+      "description": "Predicted intake of dairy (cup equivalents) per day", 
+      "val": 1.7470700462000002
+    }, 
+    "DSQdairy_high": {
+      "description": "Predicted probability of eating equal or more than 2.4 cup equivalents of dairy", 
+      "val": 0.16718825558469094
+    }, 
+    "DSQdairy_low": {
+      "description": "Predicted probability of eating less than 1.2 cup equivalents of dairy", 
+      "val": 0.2793065676456281
+    }, 
+    "DSQfib": {
+      "description": "Predicted intake of fiber (gm) per day", 
+      "val": 19.00857223369442
+    }, 
+    "DSQfib_high": {
+      "description": "Predicted probability of eating equal or more than 19 grams of fiber", 
+      "val": 0.4359048891933382
+    }, 
+    "DSQfib_low": {
+      "description": "Predicted probability of eating less than 12 grams of fiber", 
+      "val": 0.09680608472443648
+    }, 
+    "DSQfrt": {
+      "description": "Predicted intake of fruits (cup equivalents) per day", 
+      "val": 0.55445697488
+    }, 
+    "DSQfrt_high": {
+      "description": "Predicted probability of eating equal or more than 1.4 cup equivalents of fruits", 
+      "val": 0.07447343851457006
+    }, 
+    "DSQfrt_low": {
+      "description": "Predicted probability of eating less than 0.5 cup equivalents of fruits", 
+      "val": 0.5121896210217466
+    }, 
+    "DSQfvl": {
+      "description": "Predicted intake of fruits and vegetables including legumes and French fries (cup equivalents) per day", 
+      "val": 2.778585378790001
+    }, 
+    "DSQfvl_high": {
+      "description": "Predicted probability of eating equal or more than 3.2 cup equivalents of fruits and vegetables including legumes and French fries", 
+      "val": 0.2937106513471929
+    }, 
+    "DSQfvl_low": {
+      "description": "Predicted probability of eating less than 1.7 cup equivalents of fruits and vegetables including legumes and French fries", 
+      "val": 0.15526047368347295
+    }, 
+    "DSQfvlnf": {
+      "description": "Predicted intake of fruits and vegetables including legumes and excluding French fries (cup equivalents) per day", 
+      "val": 2.67498250324
+    }, 
+    "DSQfvlnf_high": {
+      "description": "Predicted probability of eating equal or more than 3.2 cup equivalents fruits and vegetables including legumes and excluding French fries", 
+      "val": 0.2635122686752409
+    }, 
+    "DSQfvlnf_low": {
+      "description": "Predicted probability of eating less than 1.7 cup equivalents fruits and vegetables including legumes and excluding French fries", 
+      "val": 0.18335776616056734
+    }, 
+    "DSQssb": {
+      "description": "Predicted intake of added sugars from sugar-sweetened beverages (tsp equivalents) per day", 
+      "val": 5.44471510292
+    }, 
+    "DSQssb_high": {
+      "description": "Predicted probability of eating equal or more than 11 tsp equivalents added sugars from sugar-sweetened beverages", 
+      "val": 0.1626930315020619
+    }, 
+    "DSQssb_low": {
+      "description": "Predicted probability of eating less than 3 tsp equivalents added sugars from sugar-sweetened beverages", 
+      "val": 0.41954672290549305
+    }, 
+    "DSQsug": {
+      "description": "Predicted intake of total added sugars (tsp equivalents) per day", 
+      "val": 12.95254671758625
+    }, 
+    "DSQsug_high": {
+      "description": "Predicted probability of eating equal or more than 23 tsp equivalents of total added sugars", 
+      "val": 0.12218106078865465
+    }, 
+    "DSQsug_low": {
+      "description": "Predicted probability of eating less than 11 tsp equivalents of total added sugars", 
+      "val": 0.3508969769067242
+    }, 
+    "DSQvlall": {
+      "description": "Predicted intake of vegetables including legumes and French fries (cup equivalents) per day", 
+      "val": 2.1441995413900004
+    }, 
+    "DSQvlall_high": {
+      "description": "Predicted probability of eating equal or more than 1.8 cup equivalents of vegetables including legumes and French fries", 
+      "val": 0.652143088196142
+    }, 
+    "DSQvlall_low": {
+      "description": "Predicted probability of eating less than 1.0 cup equivalents of vegetables including legumes and French fries", 
+      "val": 0.035659219592079114
+    }, 
+    "DSQvlnf": {
+      "description": "Predicted intake of vegetables including legumes and excluding French fries (cup equivalents) per day", 
+      "val": 2.05563334346
+    }, 
+    "DSQvlnf_high": {
+      "description": "Predicted probability of eating equal or more than 1.8 cup equivalents vegetables including legumes and excluding French fries", 
+      "val": 0.5874193717483165
+    }, 
+    "DSQvlnf_low": {
+      "description": "Predicted probability of eating less than 1.0 cup equivalents vegetables including legumes and excluding French fries", 
+      "val": 0.053684349245354486
+    }, 
+    "DSQwhgr": {
+      "description": "Predicted intake of whole grains (ounce equivalents) per day", 
+      "val": 0.9315443328560001
+    }, 
+    "DSQwhgr_high": {
+      "description": "Predicted probability of eating equal or more than 1.0 ounce equivalents of whole grains", 
+      "val": 0.30856883609544644
+    }, 
+    "DSQwhgr_low": {
+      "description": "Predicted probability of eating less than 0.3 ounce equivalents of whole grains", 
+      "val": 0.1212450615324465
+    }
+  }
+}
